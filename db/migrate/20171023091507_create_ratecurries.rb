@@ -7,7 +7,7 @@ class CreateRatecurries < ActiveRecord::Migration[5.0]
       t.timestamps
     end
       add_index :ratecurries, :currency_id 
-      add_index :ratecurries, :currency_id, :date_rate
+    #  add_index :ratecurries, :currency_id, :date_rate
       
   end
 end
