@@ -1,0 +1,2 @@
+module RatecurriesHelper
+end

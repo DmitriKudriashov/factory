@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Currencies:</strong>
+  <%= @ratecurry.Currencies_id %>
+</p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= @ratecurry.rate %>
+</p>
+
+<%= link_to 'Edit', edit_ratecurry_path(@ratecurry) %> |
+<%= link_to 'Back', ratecurries_path %>

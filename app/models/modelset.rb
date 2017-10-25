@@ -1,0 +1,2 @@
+class Modelset < ApplicationRecord
+end

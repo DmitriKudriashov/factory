@@ -1,0 +1,67 @@
+<%= form_for(modelprice) do |f| %>
+  <% if modelprice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(modelprice.errors.count, "error") %> prohibited this modelprice from being saved:</h2>
+
+      <ul>
+      <% modelprice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :modelsets_id %>
+    <%= f.text_field :modelsets_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :categories_id %>
+    <%= f.text_field :categories_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descriptions_id %>
+    <%= f.text_field :descriptions_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Quantty %>
+    <%= f.text_field :Quantty %>
+  </div>
+
+  <div class="field">
+    <%= f.label :units_id %>
+    <%= f.text_field :units_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :UnitPrice %>
+    <%= f.text_field :UnitPrice %>
+  </div>
+
+  <div class="field">
+    <%= f.label :currencies_id %>
+    <%= f.text_field :currencies_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ratecurries_id %>
+    <%= f.text_field :ratecurries_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :SumCurry %>
+    <%= f.text_field :SumCurry %>
+  </div>
+
+  <div class="field">
+    <%= f.label :SumUsd %>
+    <%= f.text_field :SumUsd %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

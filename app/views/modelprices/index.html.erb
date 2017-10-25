@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Modelprices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modelsets</th>
+      <th>Categories</th>
+      <th>Descriptions</th>
+      <th>Quantty</th>
+      <th>Units</th>
+      <th>Unitprice</th>
+      <th>Currencies</th>
+      <th>Ratecurries</th>
+      <th>Sumcurry</th>
+      <th>Sumusd</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @modelprices.each do |modelprice| %>
+      <tr>
+        <td><%= modelprice.modelsets_id %></td>
+        <td><%= modelprice.categories_id %></td>
+        <td><%= modelprice.descriptions_id %></td>
+        <td><%= modelprice.Quantty %></td>
+        <td><%= modelprice.units_id %></td>
+        <td><%= modelprice.UnitPrice %></td>
+        <td><%= modelprice.currencies_id %></td>
+        <td><%= modelprice.ratecurries_id %></td>
+        <td><%= modelprice.SumCurry %></td>
+        <td><%= modelprice.SumUsd %></td>
+        <td><%= link_to 'Show', modelprice %></td>
+        <td><%= link_to 'Edit', edit_modelprice_path(modelprice) %></td>
+        <td><%= link_to 'Destroy', modelprice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Modelprice', new_modelprice_path %>

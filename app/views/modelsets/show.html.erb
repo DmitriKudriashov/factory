@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Modelnumber:</strong>
+  <%= @modelset.ModelNumber %>
+</p>
+
+<p>
+  <strong>Dt:</strong>
+  <%= @modelset.Dt %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @modelset.Product_id %>
+</p>
+
+<%= link_to 'Edit', edit_modelset_path(@modelset) %> |
+<%= link_to 'Back', modelsets_path %>

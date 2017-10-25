@@ -1,0 +1,2 @@
+class Ratecurry < ApplicationRecord
+end

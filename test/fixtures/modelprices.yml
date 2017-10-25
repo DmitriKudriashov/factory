@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  modelsets_id: 
+  categories_id: 
+  descriptions_id: 
+  Quantty: 
+  units_id: 
+  UnitPrice: 
+  currencies_id: 
+  ratecurries_id: 
+  SumCurry: 
+  SumUsd: 1.5
+
+two:
+  modelsets_id: 
+  categories_id: 
+  descriptions_id: 
+  Quantty: 
+  units_id: 
+  UnitPrice: 
+  currencies_id: 
+  ratecurries_id: 
+  SumCurry: 
+  SumUsd: 1.5

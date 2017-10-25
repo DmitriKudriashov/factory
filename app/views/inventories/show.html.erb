@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @inventory.Quantity %>
+</p>
+
+<p>
+  <strong>Budgetsitems:</strong>
+  <%= @inventory.budgetsitems_id %>
+</p>
+
+<p>
+  <strong>Descriptions:</strong>
+  <%= @inventory.descriptions_id %>
+</p>
+
+<p>
+  <strong>Brands:</strong>
+  <%= @inventory.brands_id %>
+</p>
+
+<p>
+  <strong>Serialnumber:</strong>
+  <%= @inventory.SerialNumber %>
+</p>
+
+<p>
+  <strong>Suppliers:</strong>
+  <%= @inventory.suppliers_id %>
+</p>
+
+<p>
+  <strong>Pricecurry:</strong>
+  <%= @inventory.PriceCurry %>
+</p>
+
+<p>
+  <strong>Sumcurry:</strong>
+  <%= @inventory.SumCurry %>
+</p>
+
+<p>
+  <strong>Priceusd:</strong>
+  <%= @inventory.PriceUsd %>
+</p>
+
+<p>
+  <strong>Sumusd:</strong>
+  <%= @inventory.SumUsd %>
+</p>
+
+<p>
+  <strong>Ratecurries:</strong>
+  <%= @inventory.ratecurries_id %>
+</p>
+
+<p>
+  <strong>Currencies:</strong>
+  <%= @inventory.currencies_id %>
+</p>
+
+<p>
+  <strong>Units:</strong>
+  <%= @inventory.units_id %>
+</p>
+
+<%= link_to 'Edit', edit_inventory_path(@inventory) %> |
+<%= link_to 'Back', inventories_path %>

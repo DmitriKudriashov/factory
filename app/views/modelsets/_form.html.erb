@@ -1,0 +1,32 @@
+<%= form_for(modelset) do |f| %>
+  <% if modelset.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(modelset.errors.count, "error") %> prohibited this modelset from being saved:</h2>
+
+      <ul>
+      <% modelset.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ModelNumber %>
+    <%= f.text_field :ModelNumber %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Dt %>
+    <%= f.text_field :Dt %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Product_id %>
+    <%= f.number_field :Product_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

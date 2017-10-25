@@ -1,0 +1,2 @@
+class Modelprice < ApplicationRecord
+end

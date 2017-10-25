@@ -1,0 +1,51 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Inventories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Quantity</th>
+      <th>Budgetsitems</th>
+      <th>Descriptions</th>
+      <th>Brands</th>
+      <th>Serialnumber</th>
+      <th>Suppliers</th>
+      <th>Pricecurry</th>
+      <th>Sumcurry</th>
+      <th>Priceusd</th>
+      <th>Sumusd</th>
+      <th>Ratecurries</th>
+      <th>Currencies</th>
+      <th>Units</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inventories.each do |inventory| %>
+      <tr>
+        <td><%= inventory.Quantity %></td>
+        <td><%= inventory.budgetsitems_id %></td>
+        <td><%= inventory.descriptions_id %></td>
+        <td><%= inventory.brands_id %></td>
+        <td><%= inventory.SerialNumber %></td>
+        <td><%= inventory.suppliers_id %></td>
+        <td><%= inventory.PriceCurry %></td>
+        <td><%= inventory.SumCurry %></td>
+        <td><%= inventory.PriceUsd %></td>
+        <td><%= inventory.SumUsd %></td>
+        <td><%= inventory.ratecurries_id %></td>
+        <td><%= inventory.currencies_id %></td>
+        <td><%= inventory.units_id %></td>
+        <td><%= link_to 'Show', inventory %></td>
+        <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
+        <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inventory', new_inventory_path %>
