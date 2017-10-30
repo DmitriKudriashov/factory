@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :suppliers
   resources :modelprices
   resources :inventories
   resources :ratecurries
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
   resources :units
   resources :brands
   resources :categories
-  resources :suppliers
   resources :posts
 	root to: 'startpage#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

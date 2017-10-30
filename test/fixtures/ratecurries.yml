@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Currencies_id: 
+  currency_id: 
   rate: 1.5
 
 two:
-  Currencies_id: 
+  currency_id: 
   rate: 1.5

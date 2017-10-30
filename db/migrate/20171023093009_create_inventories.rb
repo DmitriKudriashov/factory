@@ -5,7 +5,7 @@ class CreateInventories < ActiveRecord::Migration[5.0]
       t.integer   :budgetsitem_id
       t.integer   :description_id
       t.integer   :brand_id
-      t.string    :serial_number, null: false 
+      t.string    :serial_number #, null: false 
       t.integer   :supplier_id
       t.decimal   :price_curry, precision: 15, scale: 2
       t.decimal   :sum_curry,   precision: 15, scale: 2

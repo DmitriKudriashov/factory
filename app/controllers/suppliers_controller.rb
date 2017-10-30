@@ -69,6 +69,6 @@ class SuppliersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supplier_params
-      params.require(:supplier).permit(:SupplierName)
+      params.require(:supplier).permit(:name)
     end
 end

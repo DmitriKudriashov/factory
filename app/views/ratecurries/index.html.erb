@@ -14,7 +14,7 @@
   <tbody>
     <% @ratecurries.each do |ratecurry| %>
       <tr>
-        <td><%= ratecurry.Currencies_id %></td>
+        <td><%= ratecurry.currency_id %></td>
         <td><%= ratecurry.rate %></td>
         <td><%= link_to 'Show', ratecurry %></td>
         <td><%= link_to 'Edit', edit_ratecurry_path(ratecurry) %></td>

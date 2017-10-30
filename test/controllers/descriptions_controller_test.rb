@@ -17,7 +17,7 @@ class DescriptionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create description" do
     assert_difference('Description.count') do
-      post descriptions_url, params: { description: { Categories_id: @description.Categories_id, DescriptionName: @description.DescriptionName } }
+      post descriptions_url, params: { description: { Categories_id: @description.Categories_id, name: @description.name } }
     end
 
     assert_redirected_to description_url(Description.last)
@@ -34,7 +34,7 @@ class DescriptionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update description" do
-    patch description_url(@description), params: { description: { Categories_id: @description.Categories_id, DescriptionName: @description.DescriptionName } }
+    patch description_url(@description), params: { description: { Categories_id: @description.Categories_id, name: @description.name } }
     assert_redirected_to description_url(@description)
   end
 

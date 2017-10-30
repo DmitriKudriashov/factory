@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  BudgetItemName: 
-  CodeItem: MyString
+  name: 
+  codeitem: MyString
 
 two:
-  BudgetItemName: 
-  CodeItem: MyString
+  name: 
+  codeitem: MyString

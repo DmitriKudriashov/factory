@@ -17,7 +17,7 @@ class ModelpricesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create modelprice" do
     assert_difference('Modelprice.count') do
-      post modelprices_url, params: { modelprice: { Quantty: @modelprice.Quantty, SumCurry: @modelprice.SumCurry, SumUsd: @modelprice.SumUsd, UnitPrice: @modelprice.UnitPrice, categories_id: @modelprice.categories_id, currencies_id: @modelprice.currencies_id, descriptions_id: @modelprice.descriptions_id, modelsets_id: @modelprice.modelsets_id, ratecurries_id: @modelprice.ratecurries_id, units_id: @modelprice.units_id } }
+      post modelprices_url, params: { modelprice: { Quantty: @modelprice.Quantty, SumCurry: @modelprice.SumCurry, SumUsd: @modelprice.SumUsd, UnitPrice: @modelprice.UnitPrice, categories_id: @modelprice.categories_id, currency_id: @modelprice.currency_id, descriptions_id: @modelprice.descriptions_id, modelsets_id: @modelprice.modelsets_id, ratecurries_id: @modelprice.ratecurries_id, units_id: @modelprice.units_id } }
     end
 
     assert_redirected_to modelprice_url(Modelprice.last)
@@ -34,7 +34,7 @@ class ModelpricesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update modelprice" do
-    patch modelprice_url(@modelprice), params: { modelprice: { Quantty: @modelprice.Quantty, SumCurry: @modelprice.SumCurry, SumUsd: @modelprice.SumUsd, UnitPrice: @modelprice.UnitPrice, categories_id: @modelprice.categories_id, currencies_id: @modelprice.currencies_id, descriptions_id: @modelprice.descriptions_id, modelsets_id: @modelprice.modelsets_id, ratecurries_id: @modelprice.ratecurries_id, units_id: @modelprice.units_id } }
+    patch modelprice_url(@modelprice), params: { modelprice: { Quantty: @modelprice.Quantty, SumCurry: @modelprice.SumCurry, SumUsd: @modelprice.SumUsd, UnitPrice: @modelprice.UnitPrice, categories_id: @modelprice.categories_id, currency_id: @modelprice.currency_id, descriptions_id: @modelprice.descriptions_id, modelsets_id: @modelprice.modelsets_id, ratecurries_id: @modelprice.ratecurries_id, units_id: @modelprice.units_id } }
     assert_redirected_to modelprice_url(@modelprice)
   end
 

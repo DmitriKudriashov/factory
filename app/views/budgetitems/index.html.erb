@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Budgetitems</h1>
+<h1>Budget Items</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Budgetitemname</th>
-      <th>Codeitem</th>
+      <th>name</th>
+      <th>codeitem</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +14,8 @@
   <tbody>
     <% @budgetitems.each do |budgetitem| %>
       <tr>
-        <td><%= budgetitem.BudgetItemName %></td>
-        <td><%= budgetitem.CodeItem %></td>
+        <td><%= budgetitem.name %></td>
+        <td><%= budgetitem.codeitem %></td>
         <td><%= link_to 'Show', budgetitem %></td>
         <td><%= link_to 'Edit', edit_budgetitem_path(budgetitem) %></td>
         <td><%= link_to 'Destroy', budgetitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>

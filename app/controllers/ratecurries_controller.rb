@@ -69,6 +69,6 @@ class RatecurriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ratecurry_params
-      params.require(:ratecurry).permit(:Currencies_id, :rate)
+      params.require(:ratecurry).permit(:currency_id, :rate)
     end
 end

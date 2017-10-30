@@ -17,7 +17,7 @@ class InventoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create inventory" do
     assert_difference('Inventory.count') do
-      post inventories_url, params: { inventory: { PriceCurry: @inventory.PriceCurry, PriceUsd: @inventory.PriceUsd, Quantity: @inventory.Quantity, SerialNumber: @inventory.SerialNumber, SumCurry: @inventory.SumCurry, SumUsd: @inventory.SumUsd, brands_id: @inventory.brands_id, budgetsitems_id: @inventory.budgetsitems_id, currencies_id: @inventory.currencies_id, descriptions_id: @inventory.descriptions_id, ratecurries_id: @inventory.ratecurries_id, suppliers_id: @inventory.suppliers_id, units_id: @inventory.units_id } }
+      post inventories_url, params: { inventory: { PriceCurry: @inventory.PriceCurry, PriceUsd: @inventory.PriceUsd, Quantity: @inventory.Quantity, SerialNumber: @inventory.SerialNumber, SumCurry: @inventory.SumCurry, SumUsd: @inventory.SumUsd, brands_id: @inventory.brands_id, budgetsitems_id: @inventory.budgetsitems_id, currency_id: @inventory.currency_id, descriptions_id: @inventory.descriptions_id, ratecurries_id: @inventory.ratecurries_id, suppliers_id: @inventory.suppliers_id, units_id: @inventory.units_id } }
     end
 
     assert_redirected_to inventory_url(Inventory.last)
@@ -34,7 +34,7 @@ class InventoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update inventory" do
-    patch inventory_url(@inventory), params: { inventory: { PriceCurry: @inventory.PriceCurry, PriceUsd: @inventory.PriceUsd, Quantity: @inventory.Quantity, SerialNumber: @inventory.SerialNumber, SumCurry: @inventory.SumCurry, SumUsd: @inventory.SumUsd, brands_id: @inventory.brands_id, budgetsitems_id: @inventory.budgetsitems_id, currencies_id: @inventory.currencies_id, descriptions_id: @inventory.descriptions_id, ratecurries_id: @inventory.ratecurries_id, suppliers_id: @inventory.suppliers_id, units_id: @inventory.units_id } }
+    patch inventory_url(@inventory), params: { inventory: { PriceCurry: @inventory.PriceCurry, PriceUsd: @inventory.PriceUsd, Quantity: @inventory.Quantity, SerialNumber: @inventory.SerialNumber, SumCurry: @inventory.SumCurry, SumUsd: @inventory.SumUsd, brands_id: @inventory.brands_id, budgetsitems_id: @inventory.budgetsitems_id, currency_id: @inventory.currency_id, descriptions_id: @inventory.descriptions_id, ratecurries_id: @inventory.ratecurries_id, suppliers_id: @inventory.suppliers_id, units_id: @inventory.units_id } }
     assert_redirected_to inventory_url(@inventory)
   end
 

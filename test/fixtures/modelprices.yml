@@ -7,7 +7,7 @@ one:
   Quantty: 
   units_id: 
   UnitPrice: 
-  currencies_id: 
+  currency_id: 
   ratecurries_id: 
   SumCurry: 
   SumUsd: 1.5
@@ -19,7 +19,7 @@ two:
   Quantty: 
   units_id: 
   UnitPrice: 
-  currencies_id: 
+  currency_id: 
   ratecurries_id: 
   SumCurry: 
   SumUsd: 1.5

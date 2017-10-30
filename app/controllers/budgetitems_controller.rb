@@ -69,6 +69,6 @@ class BudgetitemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def budgetitem_params
-      params.require(:budgetitem).permit(:BudgetItemName, :CodeItem)
+      params.require(:budgetitem).permit(:name, :codeitem)
     end
 end

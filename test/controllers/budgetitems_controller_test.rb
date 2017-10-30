@@ -17,7 +17,7 @@ class BudgetitemsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create budgetitem" do
     assert_difference('Budgetitem.count') do
-      post budgetitems_url, params: { budgetitem: { BudgetItemName: @budgetitem.BudgetItemName, CodeItem: @budgetitem.CodeItem } }
+      post budgetitems_url, params: { budgetitem: { name: @budgetitem.name, codeitem: @budgetitem.codeitem } }
     end
 
     assert_redirected_to budgetitem_url(Budgetitem.last)
@@ -34,7 +34,7 @@ class BudgetitemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update budgetitem" do
-    patch budgetitem_url(@budgetitem), params: { budgetitem: { BudgetItemName: @budgetitem.BudgetItemName, CodeItem: @budgetitem.CodeItem } }
+    patch budgetitem_url(@budgetitem), params: { budgetitem: { name: @budgetitem.name, codeitem: @budgetitem.codeitem } }
     assert_redirected_to budgetitem_url(@budgetitem)
   end
 

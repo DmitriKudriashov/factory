@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171023101204) do
+ActiveRecord::Schema.define(version: 20171027084431) do
 
   create_table "brands", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_brands_on_name", unique: true
   end
 
   create_table "budgetitems", force: :cascade do |t|
-    t.string   "name",                  null: false
-    t.string   "codeitem",   limit: 10, null: false
+    t.string   "name"
+    t.string   "codeitem",   limit: 10
     t.string   "shortname",  limit: 20
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -31,14 +31,14 @@ ActiveRecord::Schema.define(version: 20171023101204) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
   create_table "currencies", force: :cascade do |t|
-    t.string   "name",                 null: false
+    t.string   "name"
     t.string   "curry_code", limit: 3, null: false
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20171023101204) do
   end
 
   create_table "descriptions", force: :cascade do |t|
-    t.string   "name",                    null: false
+    t.string   "name"
     t.integer  "category_id", default: 0, null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20171023101204) do
     t.integer  "budgetsitem_id"
     t.integer  "description_id"
     t.integer  "brand_id"
-    t.string   "serial_number",                                           null: false
+    t.string   "serial_number"
     t.integer  "supplier_id"
     t.decimal  "price_curry",    precision: 15, scale: 2
     t.decimal  "sum_curry",      precision: 15, scale: 2
@@ -102,8 +102,8 @@ ActiveRecord::Schema.define(version: 20171023101204) do
   end
 
   create_table "modelsets", force: :cascade do |t|
-    t.string   "number_model",                        null: false
-    t.date     "date_model",   default: '2017-10-25', null: false
+    t.string   "number_model"
+    t.date     "date_model",   default: '2017-10-27', null: false
     t.integer  "product_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
@@ -118,30 +118,30 @@ ActiveRecord::Schema.define(version: 20171023101204) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_products_on_name", unique: true
   end
 
   create_table "ratecurries", force: :cascade do |t|
-    t.integer  "currency_id",                                                 null: false
+    t.integer  "currency_id"
     t.decimal  "rate",        precision: 15, scale: 4
-    t.date     "date_rate",                            default: '2017-10-25'
+    t.date     "date_rate",                            default: '2017-10-27'
     t.datetime "created_at",                                                  null: false
     t.datetime "updated_at",                                                  null: false
     t.index ["currency_id"], name: "index_ratecurries_on_currency_id"
   end
 
   create_table "suppliers", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_suppliers_on_name", unique: true
   end
 
   create_table "units", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_units_on_name", unique: true
