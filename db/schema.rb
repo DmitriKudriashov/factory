@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171027084431) do
+ActiveRecord::Schema.define(version: 20171102120725) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
@@ -48,16 +48,16 @@ ActiveRecord::Schema.define(version: 20171027084431) do
 
   create_table "descriptions", force: :cascade do |t|
     t.string   "name"
-    t.integer  "category_id", default: 0, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["category_id"], name: "index_descriptions_on_category_id"
     t.index ["name"], name: "index_descriptions_on_name", unique: true
   end
 
   create_table "inventories", force: :cascade do |t|
     t.decimal  "quantity",                                default: "0.0"
-    t.integer  "budgetsitem_id"
+    t.integer  "budgetitem_id"
     t.integer  "description_id"
     t.integer  "brand_id"
     t.string   "serial_number"
@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20171027084431) do
     t.datetime "created_at",                                              null: false
     t.datetime "updated_at",                                              null: false
     t.index ["brand_id"], name: "index_inventories_on_brand_id"
-    t.index ["budgetsitem_id"], name: "index_inventories_on_budgetsitem_id"
+    t.index ["budgetitem_id"], name: "index_inventories_on_budgetitem_id"
     t.index ["currency_id"], name: "index_inventories_on_currency_id"
     t.index ["description_id"], name: "index_inventories_on_description_id"
     t.index ["ratecurry_id"], name: "index_inventories_on_ratecurry_id"

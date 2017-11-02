@@ -2,24 +2,24 @@
 
 one:
   modelsets_id: 
-  categories_id: 
-  descriptions_id: 
+  category_id: 
+  description_id: 
   Quantty: 
-  units_id: 
+  unit_id: 
   UnitPrice: 
   currency_id: 
-  ratecurries_id: 
-  SumCurry: 
-  SumUsd: 1.5
+  ratecurry_id: 
+  sum_curry: 
+  sum_usd: 1.5
 
 two:
   modelsets_id: 
-  categories_id: 
-  descriptions_id: 
+  category_id: 
+  description_id: 
   Quantty: 
-  units_id: 
+  unit_id: 
   UnitPrice: 
   currency_id: 
-  ratecurries_id: 
-  SumCurry: 
-  SumUsd: 1.5
+  ratecurry_id: 
+  sum_curry: 
+  sum_usd: 1.5

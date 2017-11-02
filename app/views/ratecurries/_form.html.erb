@@ -13,16 +13,34 @@
 
 
   <div class="field">
-    <%= f.label :currency_id %>
-    <%= f.text_field :currency_id %>
+    <% f.label :currency_id %>
+    <% f.text_field :currency_id %>
   </div>
+
+   <div class="field">
+    <%= 'Currency: ' %><br />
+  <!--  <%= collection_select :ratecurry, :currency_id, Currency.all, :id, :name, :prompt => false %> -->
+    <%=     collection_select :ratecurry, :currency_id, Currency.all, :id, :name,  prompt: false %>
+   </div>
 
   <div class="field">
     <%= f.label :rate %>
     <%= f.text_field :rate %>
   </div>
 
+
+  <div class="field">
+    <%= 'Rate date ' %><br />
+    <% if not @ratecurry.date_rate.nil? %>
+    <%= f.date_field :date_rate , :value => @ratecurry.date_rate.strftime("%d.%m.%Y")  %>
+    <% else %>
+    <%= f.date_field :date_rate %>
+    <% end %>
+    
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

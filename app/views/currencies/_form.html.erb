@@ -2,26 +2,60 @@
   <% if currency.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(currency.errors.count, "error") %> prohibited this currency from being saved:</h2>
-
       <ul>
       <% currency.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
-  <% end %>
 
+  <% end %>
+  
+  <div class="field">
+    <%= f.label :id %>
+    <%= f.text_field :id %>
+    <%  id_it =  f.text_field :id %> 
+  </div>
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :CurryCode %>
-    <%= f.text_field :CurryCode %>
+    <%= f.label :curry_code %>
+    <%= f.text_field :curry_code %>
   </div>
+
+
 
   <div class="actions">
     <%= f.submit %>
   </div>
+  
+  <% @ratecurries = Ratecurry.all.where(currency_id: id_it) %> 
+ 
+  <table>
+    <thead>
+      <tr>
+        <th>N record </th>
+        <th>Currencies</th>
+        <th>Rate</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @ratecurries.each do |ratecurry| %>
+        <tr>
+          <td><%= ratecurry.id %></td>
+          <td><%= ratecurry.currency_id %></td>
+          <td><%= ratecurry.rate %></td>
+          <td><%= link_to 'Show', ratecurry %></td>
+          <td><%= link_to 'Edit', edit_ratecurry_path(ratecurry) %></td>
+          <td><%= link_to 'Destroy', ratecurry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
 <% end %>

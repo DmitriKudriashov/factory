@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>name:</strong>
+  <strong>Description:</strong>
   <%= @description.name %>
 </p>
 
 <p>
-  <strong>Categories:</strong>
-  <%= @description.Categories_id %>
+  <strong>Category:</strong>
+  <%= @description.category.name %>
 </p>
 
 <%= link_to 'Edit', edit_description_path(@description) %> |

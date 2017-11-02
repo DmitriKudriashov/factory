@@ -2,8 +2,8 @@
 
 one:
   name: 
-  Categories_id: 1
+  category_id: 1
 
 two:
   name: 
-  Categories_id: 1
+  category_id: 1

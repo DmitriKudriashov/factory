@@ -1,31 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Quantity: 
-  budgetsitems_id: 
-  descriptions_id: 
-  brands_id: 
-  SerialNumber: 
-  suppliers_id: 
-  PriceCurry: 
-  SumCurry: 
-  PriceUsd: 
-  SumUsd: 
-  ratecurries_id: 
+  quantity: 
+  budgetitem_id: 
+  description_id: 
+  brand_id: 
+  serial_number: 
+  supplier_id: 
+  price_curry: 
+  sum_curry: 
+  price_usd: 
+  sum_usd: 
+  ratecurry_id: 
   currency_id: 
-  units_id: 1
+  unit_id: 1
 
 two:
-  Quantity: 
-  budgetsitems_id: 
-  descriptions_id: 
-  brands_id: 
-  SerialNumber: 
-  suppliers_id: 
-  PriceCurry: 
-  SumCurry: 
-  PriceUsd: 
-  SumUsd: 
-  ratecurries_id: 
+  quantity: 
+  budgetitem_id: 
+  description_id: 
+  brand_id: 
+  serial_number: 
+  supplier_id: 
+  price_curry: 
+  sum_curry: 
+  price_usd: 
+  sum_usd: 
+  ratecurry_id: 
   currency_id: 
-  units_id: 1
+  unit_id: 1

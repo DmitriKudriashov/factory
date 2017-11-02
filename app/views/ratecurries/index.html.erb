@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Ratecurries</h1>
+<h1>Currency Rates</h1>
 
 <table>
   <thead>
     <tr>
       <th>Currencies</th>
       <th>Rate</th>
+      <th>Date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +15,9 @@
   <tbody>
     <% @ratecurries.each do |ratecurry| %>
       <tr>
-        <td><%= ratecurry.currency_id %></td>
+        <td><%= ratecurry.currency.name %></td>
         <td><%= ratecurry.rate %></td>
+        <td><%= ratecurry.date_rate.strftime("%d.%m.%y")  %></td>
         <td><%= link_to 'Show', ratecurry %></td>
         <td><%= link_to 'Edit', edit_ratecurry_path(ratecurry) %></td>
         <td><%= link_to 'Destroy', ratecurry, method: :delete, data: { confirm: 'Are you sure?' } %></td>

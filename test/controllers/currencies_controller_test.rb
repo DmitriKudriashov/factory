@@ -17,7 +17,7 @@ class CurrenciesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create currency" do
     assert_difference('Currency.count') do
-      post currencies_url, params: { currency: { name: @currency.name, CurryCode: @currency.CurryCode } }
+      post currencies_url, params: { currency: { name: @currency.name, curry_code: @currency.curry_code } }
     end
 
     assert_redirected_to currency_url(Currency.last)
@@ -34,7 +34,7 @@ class CurrenciesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update currency" do
-    patch currency_url(@currency), params: { currency: { name: @currency.name, CurryCode: @currency.CurryCode } }
+    patch currency_url(@currency), params: { currency: { name: @currency.name, curry_code: @currency.curry_code } }
     assert_redirected_to currency_url(@currency)
   end
 

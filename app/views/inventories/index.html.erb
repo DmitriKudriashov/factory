@@ -6,18 +6,18 @@
   <thead>
     <tr>
       <th>Quantity</th>
-      <th>Budgetsitems</th>
-      <th>Descriptions</th>
-      <th>Brands</th>
-      <th>Serialnumber</th>
+      <th>B/Item</th>
+      <th>Description</th>
+      <th>Brand</th>
+      <th>Serial Numer</th>
       <th>Suppliers</th>
-      <th>Pricecurry</th>
-      <th>Sumcurry</th>
-      <th>Priceusd</th>
-      <th>Sumusd</th>
-      <th>Ratecurries</th>
-      <th>Currencies</th>
-      <th>Units</th>
+      <th>Price (curry)</th>
+      <th>Sum   (curry)</th>
+      <th>Price (usd)</th>
+      <th>Sum   (usd)</th>
+      <th>Rate   </th>
+      <th>Currency</th>
+      <th>Unit</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,19 +25,19 @@
   <tbody>
     <% @inventories.each do |inventory| %>
       <tr>
-        <td><%= inventory.Quantity %></td>
-        <td><%= inventory.budgetsitems_id %></td>
-        <td><%= inventory.descriptions_id %></td>
-        <td><%= inventory.brands_id %></td>
-        <td><%= inventory.SerialNumber %></td>
-        <td><%= inventory.suppliers_id %></td>
-        <td><%= inventory.PriceCurry %></td>
-        <td><%= inventory.SumCurry %></td>
-        <td><%= inventory.PriceUsd %></td>
-        <td><%= inventory.SumUsd %></td>
-        <td><%= inventory.ratecurries_id %></td>
-        <td><%= inventory.currency_id %></td>
-        <td><%= inventory.units_id %></td>
+        <td><%= inventory.quantity %></td>
+        <td><%= inventory.budgetitem.name %></td>
+        <td><%= inventory.description.name %></td>
+        <td><%= inventory.brand.name %></td>
+        <td><%= inventory.serial_number %></td>
+        <td><%= inventory.supplier.name %></td>
+        <td><%= inventory.price_curry %></td>
+        <td><%= inventory.sum_curry %></td>
+        <td><%= inventory.price_usd %></td>
+        <td><%= inventory.sum_usd %></td>
+        <td><%= inventory.ratecurry.rate %></td>
+        <td><%= inventory.currency.name %></td>
+        <td><%= inventory.unit.name %> </td>
         <td><%= link_to 'Show', inventory %></td>
         <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
         <td><%= link_to 'Destroy', inventory, method: :delete, data: { confirm: 'Are you sure?' } %></td>

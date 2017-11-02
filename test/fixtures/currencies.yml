@@ -2,8 +2,8 @@
 
 one:
   name: 
-  CurryCode: MyString
+  curry_code: MyString
 
 two:
   name: 
-  CurryCode: MyString
+  curry_code: MyString

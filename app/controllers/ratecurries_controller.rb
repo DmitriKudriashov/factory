@@ -15,6 +15,8 @@ class RatecurriesController < ApplicationController
   # GET /ratecurries/new
   def new
     @ratecurry = Ratecurry.new
+    @ratecurry.date_rate = Date.today
+    #@ratecurry.currency_id = Currency.all[1]
   end
 
   # GET /ratecurries/1/edit
@@ -69,6 +71,6 @@ class RatecurriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ratecurry_params
-      params.require(:ratecurry).permit(:currency_id, :rate)
+      params.require(:ratecurry).permit(:currency_id, :rate, :date_rate)
     end
 end

@@ -17,9 +17,10 @@
   </div>
 
   <div class="field">
-    <%= f.label :Categories_id %>
-    <%= f.number_field :Categories_id %>
-  </div>
+    <%= f.label :category_id %>
+   <!-- <%= f.number_field :category_id %> -->
+   <%=   collection_select :description, :category_id, Category.all, :id, :name,  prompt: false %>
+   </div>
 
   <div class="actions">
     <%= f.submit %>
