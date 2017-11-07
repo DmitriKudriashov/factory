@@ -12,8 +12,17 @@
   <% end %>
 
   <div class="field">
-    <% f.label :quantity %> 
-    Quantty: 
+     Date: 
+   <% if not @inventory.date_investment.nil? %>
+    <%= f.date_field :date_investment , :value => @inventory.date_investment.strftime("%d.%m.%Y")  %>
+    <% else %>
+    <%= f.date_field :date_investment %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <% f.label :quantity %>  
+    quantty: 
     <%= f.text_field :quantity %>
   </div>
 
@@ -52,15 +61,6 @@
    <%=     collection_select :inventory, :supplier_id, Supplier.all, :id, :name,  prompt: false %>
   </div>
 
-  <div class="field">
-    Price (currency): <% f.label :price_curry %>
-    <%= f.text_field :price_curry %>
-  </div>
-
-  <div class="field">
-    Sum (currency): <% f.label :sum_curry %>
-    <%= f.text_field :sum_curry %>
-  </div>
 
   <div class="field">
     Price (usd): <% f.label :price_usd %>
@@ -72,28 +72,44 @@
     <%= f.text_field :sum_usd %>
   </div>
 
+
   <div class="field">
-     <% f.label :ratecurry_id %>
-     Rate:
-    <%=     collection_select :inventory, :ratecurry_id, Ratecurry.all, :id, :rate,  prompt: false %>
-    <!-- <%= f.text_field :ratecurry_id %> -->
+    Price (uah): <% f.label :price_curry %>
+    <%= f.text_field :price_curry %>
   </div>
 
   <div class="field">
-    Currency: <% f.label :currency_id %>
- <!--   <%= f.text_field :currency_id %> -->
-  <%=     collection_select :inventory, :currency_id, Currency.all, :id, :name,  prompt: false %>
-   
+    Sum (uah): <% f.label :sum_curry %>
+    <%= f.text_field :sum_curry %>
   </div>
+
+
+ <!-- <div class="field">
+     <% f.label :ratecurry_id %>
+     Rate:
+    <%=     collection_select :inventory, :ratecurry_id, Ratecurry.all, :id, :rate,  prompt: false %>
+  </div>
+
+  <div class="field">
+     Currency: <% f.label :currency_id %>
+  <%=     collection_select :inventory, :currency_id, Currency.all, :id, :name,  prompt: false %>
+  </div>  -->
+
 
   <div class="field">
     Unit: <% f.label :unit_id %>
    <!-- <%= f.number_field :unit_id %> -->
   <%=     collection_select :inventory, :unit_id, Unit.all, :id, :name,  prompt: false %>
-   
   </div>
 
+  <div class="field">
+    Use Type : <% f.label :unit_id %>
+  <%=     collection_select :inventory, :usingtype_id, Usingtype.all, :id, :name,  prompt: false %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>
+    

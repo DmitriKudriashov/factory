@@ -27,6 +27,7 @@ class InventoriesController < ApplicationController
     @inventory = Inventory.new(inventory_params)
 
     respond_to do |format|
+      #@inventory.rate = calc_rate_to_date(@inventory.currency_id, in_date_rate)
       if @inventory.save
         format.html { redirect_to @inventory, notice: 'Inventory was successfully created.' }
         format.json { render :show, status: :created, location: @inventory }
@@ -69,6 +70,9 @@ class InventoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inventory_params
-      params.require(:inventory).permit(:quantity, :budgetitem_id, :description_id, :brand_id, :serial_number, :supplier_id, :price_curry, :sum_curry, :price_usd, :sum_usd, :ratecurry_id, :currency_id, :unit_id)
+      params.require(:inventory).permit(:quantity, :budgetitem_id, :description_id, :brand_id, :serial_number, 
+        :supplier_id, :price_curry, :sum_curry, :price_usd, :sum_usd, :ratecurry_id, :currency_id, :unit_id, 
+        :date_investment, :usingtype_id)
+      
     end
 end

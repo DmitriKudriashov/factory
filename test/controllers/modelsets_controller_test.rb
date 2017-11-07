@@ -17,7 +17,7 @@ class ModelsetsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create modelset" do
     assert_difference('Modelset.count') do
-      post modelsets_url, params: { modelset: { Dt: @modelset.Dt, ModelNumber: @modelset.ModelNumber, Product_id: @modelset.Product_id } }
+      post modelsets_url, params: { modelset: { date_model: @modelset.date_model, number_model: @modelset.number_model, product_id: @modelset.product_id } }
     end
 
     assert_redirected_to modelset_url(Modelset.last)
@@ -34,7 +34,7 @@ class ModelsetsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update modelset" do
-    patch modelset_url(@modelset), params: { modelset: { Dt: @modelset.Dt, ModelNumber: @modelset.ModelNumber, Product_id: @modelset.Product_id } }
+    patch modelset_url(@modelset), params: { modelset: { date_model: @modelset.date_model, number_model: @modelset.number_model, product_id: @modelset.product_id } }
     assert_redirected_to modelset_url(@modelset)
   end
 

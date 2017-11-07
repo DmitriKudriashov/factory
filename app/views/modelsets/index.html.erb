@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Modelsets</h1>
+<h1>Model Sets</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Modelnumber</th>
-      <th>Dt</th>
+      <th>Number model</th>
+      <th>Date </th>
       <th>Product</th>
       <th colspan="3"></th>
     </tr>
@@ -15,9 +15,9 @@
   <tbody>
     <% @modelsets.each do |modelset| %>
       <tr>
-        <td><%= modelset.ModelNumber %></td>
-        <td><%= modelset.Dt %></td>
-        <td><%= modelset.Product_id %></td>
+        <td><%= modelset.number_model %></td>
+        <td><%= modelset.date_model.strftime("%d.%m.%y")  %></td>
+        <td><%= modelset.product.name %></td>
         <td><%= link_to 'Show', modelset %></td>
         <td><%= link_to 'Edit', edit_modelset_path(modelset) %></td>
         <td><%= link_to 'Destroy', modelset, method: :delete, data: { confirm: 'Are you sure?' } %></td>

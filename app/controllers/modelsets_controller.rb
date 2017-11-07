@@ -69,6 +69,6 @@ class ModelsetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def modelset_params
-      params.require(:modelset).permit(:ModelNumber, :Dt, :Product_id)
+      params.require(:modelset).permit(:number_model, :date_model, :product_id)
     end
 end

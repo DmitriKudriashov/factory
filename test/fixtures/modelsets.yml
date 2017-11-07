@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  ModelNumber: 
-  Dt: 
-  Product_id: 1
+  number_model: 
+  date_model: 
+  product_id: 1
 
 two:
-  ModelNumber: 
-  Dt: 
-  Product_id: 1
+  number_model: 
+  date_model: 
+  product_id: 1

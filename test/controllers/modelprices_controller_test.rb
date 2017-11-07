@@ -17,7 +17,7 @@ class ModelpricesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create modelprice" do
     assert_difference('Modelprice.count') do
-      post modelprices_url, params: { modelprice: { Quantty: @modelprice.Quantty, sum_curry: @modelprice.sum_curry, sum_usd: @modelprice.sum_usd, UnitPrice: @modelprice.UnitPrice, category_id: @modelprice.category_id, currency_id: @modelprice.currency_id, description_id: @modelprice.description_id, modelsets_id: @modelprice.modelsets_id, ratecurry_id: @modelprice.ratecurry_id, unit_id: @modelprice.unit_id } }
+      post modelprices_url, params: { modelprice: { quantty: @modelprice.quantty, sum_curry: @modelprice.sum_curry, sum_usd: @modelprice.sum_usd, unit_price: @modelprice.unit_price, category_id: @modelprice.category_id, currency_id: @modelprice.currency_id, description_id: @modelprice.description_id, modelset_id: @modelprice.modelset_id, ratecurry_id: @modelprice.ratecurry_id, unit_id: @modelprice.unit_id } }
     end
 
     assert_redirected_to modelprice_url(Modelprice.last)
@@ -34,7 +34,7 @@ class ModelpricesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update modelprice" do
-    patch modelprice_url(@modelprice), params: { modelprice: { Quantty: @modelprice.Quantty, sum_curry: @modelprice.sum_curry, sum_usd: @modelprice.sum_usd, UnitPrice: @modelprice.UnitPrice, category_id: @modelprice.category_id, currency_id: @modelprice.currency_id, description_id: @modelprice.description_id, modelsets_id: @modelprice.modelsets_id, ratecurry_id: @modelprice.ratecurry_id, unit_id: @modelprice.unit_id } }
+    patch modelprice_url(@modelprice), params: { modelprice: { quantty: @modelprice.quantty, sum_curry: @modelprice.sum_curry, sum_usd: @modelprice.sum_usd, unit_price: @modelprice.unit_price, category_id: @modelprice.category_id, currency_id: @modelprice.currency_id, description_id: @modelprice.description_id, modelset_id: @modelprice.modelset_id, ratecurry_id: @modelprice.ratecurry_id, unit_id: @modelprice.unit_id } }
     assert_redirected_to modelprice_url(@modelprice)
   end
 

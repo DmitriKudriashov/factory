@@ -69,6 +69,6 @@ class ModelpricesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def modelprice_params
-      params.require(:modelprice).permit(:modelsets_id, :category_id, :description_id, :Quantty, :unit_id, :UnitPrice, :currency_id, :ratecurry_id, :sum_curry, :sum_usd)
+      params.require(:modelprice).permit(:modelset_id, :category_id, :description_id, :quantty, :unit_id, :unit_price, :currency_id, :ratecurry_id, :sum_curry, :sum_usd)
     end
 end

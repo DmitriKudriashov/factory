@@ -6,6 +6,11 @@ class RatecurriesController < ApplicationController
   def index
     @ratecurries = Ratecurry.all
   end
+  def check_act
+       'xxxxx'
+  end
+
+
 
   # GET /ratecurries/1
   # GET /ratecurries/1.json

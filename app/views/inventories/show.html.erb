@@ -1,10 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Id:</strong>
+  <%= @inventory.id %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @inventory.date_investment.strftime("%d.%m.%Y") %>
+</p>
+<p>
   <strong>quantity:</strong>
   <%= @inventory.quantity %>
 </p>
-
 <p>
   <strong>Budgetsitems:</strong>
   <%= @inventory.budgetitem_id %>
@@ -63,6 +71,11 @@
 <p>
   <strong>Units:</strong>
   <%= @inventory.unit_id %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @inventory.usingtype.name %>
 </p>
 
 <%= link_to 'Edit', edit_inventory_path(@inventory) %> |

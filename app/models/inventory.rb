@@ -6,6 +6,7 @@ class Inventory < ApplicationRecord
 	belongs_to :ratecurry
 	belongs_to :currency
 	belongs_to :unit
+	belongs_to :usingtype
 
 end
     

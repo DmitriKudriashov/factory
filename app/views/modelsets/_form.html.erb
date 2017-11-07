@@ -12,18 +12,24 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :ModelNumber %>
-    <%= f.text_field :ModelNumber %>
+    Model Number :<% f.label :number_model %>
+    <%= f.text_field :number_model %>
   </div>
 
   <div class="field">
-    <%= f.label :Dt %>
-    <%= f.text_field :Dt %>
+    Model Date   : <% f.label :date_model %>
+    <% if not @modelset.date_model.nil? %>
+    <%= f.date_field :date_model , :value => @modelset.date_model.strftime("%d.%m.%Y")  %>
+    <% else %>
+    <%= f.date_field :date_model %>
+    <% end %>
   </div>
 
   <div class="field">
-    <%= f.label :Product_id %>
-    <%= f.number_field :Product_id %>
+    Product      :<% f.label :product_id %>
+  <!--  <%= f.number_field :product_id %> -->
+    <%=     collection_select :modelset, :product_id, Product.all, :id, :name,  prompt: false %>
+  
   </div>
 
   <div class="actions">
