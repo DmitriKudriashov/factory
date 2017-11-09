@@ -5,22 +5,22 @@
 <table>
   <thead>
     <tr>
-      <th>Number model</th>
-      <th>Date </th>
-      <th>Product</th>
-      <th colspan="3"></th>
+      <th colspan="5" class = "celltab100center">Number model</th>
+      <th colspan="5" class = "celltab50">Date </th>
+      <th colspan="5" class = "celltab100center">Product</th>
+      <th colspan="15"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @modelsets.each do |modelset| %>
       <tr>
-        <td><%= modelset.number_model %></td>
-        <td><%= modelset.date_model.strftime("%d.%m.%y")  %></td>
-        <td><%= modelset.product.name %></td>
-        <td><%= link_to 'Show', modelset %></td>
-        <td><%= link_to 'Edit', edit_modelset_path(modelset) %></td>
-        <td><%= link_to 'Destroy', modelset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td colspan="5" class = "celltab100center"><%= modelset.number_model %></td>
+        <td colspan="5" class = "celltab50"><%= modelset.date_model.strftime("%d.%m.%y")  %></td>
+        <td colspan="5" class = "celltab100center"><%= modelset.product.name %></td>
+        <td colspan="5" class = "s_e_d"><%= link_to 'Show', modelset %></td>
+        <td colspan="5" class = "s_e_d" ><%= link_to 'Edit', edit_modelset_path(modelset) %></td>
+        <td colspan="5"  class = "s_e_d"><%= link_to 'Destroy', modelset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,6 @@
 
 <br>
 
-<%= link_to 'New Modelset', new_modelset_path %>
+<%= link_to 'New Modelset', new_modelset_path %><br>
+<%= link_to 'Back to Startpage', :root  %>
+

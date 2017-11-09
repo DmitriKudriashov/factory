@@ -14,7 +14,7 @@
   <div class="field">
     Model     : <% f.label :modelset_id %>
    <!-- <%= f.text_field :modelset_id %> -->
-    <%=     collection_select :modelprice, :modelset_id, Modelset.all, :id, :name,  prompt: false %>
+    <%=     collection_select :modelprice, :modelset_id, Modelset.all, :id, :number_model,  prompt: false %>
   
   </div>
 
@@ -53,9 +53,8 @@
   </div>
 
   <div class="field">
-    Rate       :<%= f.label :ratecurry_id %>
-   <!-- <%= f.text_field :ratecurry_id %> -->
-   <%=     collection_select :inventory, :ratecurry_id, Ratecurry.all, :id, :rate,  prompt: false %>
+    Rate       :<% f.label :ratecurry_id %>
+   <%=     collection_select :modelprice, :ratecurry_id, Ratecurry.all, :id, :rate,  prompt: false %>
   </div>
 
   <div class="field">

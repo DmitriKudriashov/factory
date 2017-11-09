@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20171107123405) do
     t.index ["name"], name: "index_descriptions_on_name", unique: true
   end
 
+
   create_table "inventories", force: :cascade do |t|
     t.decimal  "quantity",                                 default: "0.0"
     t.integer  "budgetitem_id"

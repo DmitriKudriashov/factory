@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :brands
   resources :categories
   resources :posts
-	root to: 'inventories#index'
-  #root to: 'startpage#index'
+  resources :startpage
+  
+#	root to: 'inventories#index'
+  root to: 'startpage#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
