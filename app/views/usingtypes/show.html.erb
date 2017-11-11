@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>No:</strong>
+  <%= @usingtype.id %>
+</p>
+<p>
+  <strong>Type:</strong>
+  <%= @usingtype.name %>
+</p>
+
+<%= link_to 'Edit', edit_usingtype_path(@usingtype) %> |
+<%= link_to 'Back', usingtypes_path %>

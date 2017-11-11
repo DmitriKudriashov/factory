@@ -1,0 +1,49 @@
+1.Как сделать для имен ввод с заглавной
+2.почему надо вводить полностью дату 
+3.почему параметр :id пустой при необходимости использования
+4. почему медленно 
+5. как установить курсор в первое поле формы
+6
+
+The dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.
+
+7. 
+
+git push origin :"удалямая ветка" ----------- удалить ветку на сервере гит
+git remote show origin --------- просмотр веток на гите
+git remote   ------------------- просмотр привязанных серверов 
+git push --set-upstream origin master ---------------- 
+==================
+Как изменить название ветки в git
+
+
+Переименование ветки (локально и удаленно)
+
+Март 22, 2015 в 19:44. Просмотров: 8 692
+git branch -m old_branch new_branch – переименовать локальную ветку
+git push origin :old_branch – удалить старую ветку
+git push --set-upstream origin new_branch – выгрузить новую ветку и "закрепить" ее за локальной веткой
+
+
+
+===================
+СДля начала создайте новый репозиторий на гитхаб. У вас откроется окно "Quick setup" на гитхаб. Вверху, под этой надписью, есть переключатель "HTTPS" и "SSH". Выберете "HTTPS".
+
+Далее, если у вас уже есть локальный git репозиторий, и вы хотите его залить, выполните инструкции из раздела
+
+…or push an existing repository from the command line
+
+git remote add origin https://github.com/ИМЯ_ПОЛЬЗОВАТЕЛЯ/ИМЯ_ПРОЕКТА.git
+git push -u origin master
+Если у вас просто есть файлы, которые не были под Git, выполните инструкции из раздела
+
+…or create a new repository on the command line
+
+echo "# ИМЯ_ПРОЕКТА" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/ИМЯ_ПОЛЬЗОВАТЕЛЯ/ИМЯ_ПРОЕКТА.git
+git push -u origin master
+После чего обновите страницу на сайте, и там появится ваши файлы.
+
