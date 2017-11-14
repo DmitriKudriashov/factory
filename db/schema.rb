@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(version: 20171107123405) do
     t.decimal  "sum_curry",       precision: 15, scale: 2
     t.decimal  "price_usd",       precision: 15, scale: 2
     t.decimal  "sum_usd",         precision: 15, scale: 2
-    t.integer  "ratecurry_id",                             default: 2
-    t.integer  "currency_id",                              default: 2
+    t.integer  "ratecurry_id"
+    t.integer  "currency_id"
     t.integer  "unit_id"
     t.datetime "created_at",                                               null: false
     t.datetime "updated_at",                                               null: false

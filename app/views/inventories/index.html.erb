@@ -41,8 +41,8 @@
         <td colspan="5" class = "celltab50right lightseagreen"><%= inventory.sum_usd %></td>
         <td colspan="5" class = "celltab50right"><%= inventory.price_curry %></td>
         <td colspan="5" class = "celltab50right skyblue"><%= inventory.sum_curry %></td>
-     <!--   <td><%= inventory.ratecurry.rate %></td>
-        <td><%= inventory.currency.name %></td>-->
+        <!--   <td><%= inventory.ratecurry_id %></td>
+        <td><%= inventory.currency_id %></td>-->
         <td colspan="5" class = "celltab30"><%= inventory.usingtype.name %> </td>
         <td colspan="5" class = "s_e_d"><%= link_to 'Show', inventory %></td>
         <td colspan="5" class = "s_e_d"><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
@@ -56,9 +56,3 @@
 
 <%= link_to 'New Inventory', new_inventory_path %><br>
 <%= link_to 'Back to Startpage', :root  %>
-
-
-<p>
-  <strong>Message :</strong>
-  <%= @message %>
-</p>
