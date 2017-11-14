@@ -22,21 +22,25 @@
 
   <div class="field">
     <% f.label :quantity %>  
-    quantty: 
+    Quantty:
     <%= f.text_field :quantity %>
   </div>
 
-  <div class="field">
+    <div class="field">
+      Unit:
+      <%=     collection_select :inventory, :unit_id, Unit.all, :id, :name,  prompt: false %>
+    </div>
+
+
+    <div class="field">
     <% f.label :budgetitem_id %>
     Budget Item:
-    <!-- <%= f.text_field :budgetitem_id %> -->
     <%=     collection_select :inventory, :budgetitem_id, Budgetitem.all, :id, :name,  prompt: false %>
   </div>
   
   <div class="field">
     <%f.label :description_id %>
     Description:
- <!--   <%= f.text_field :description_id %> -->
     <%=     collection_select :inventory, :description_id, Description.all, :id, :name,  prompt: false %>
  
   </div>
@@ -44,7 +48,6 @@
   <div class="field">
     <% f.label :brand_id %>
     Brand:
-  <!--    <%= f.text_field :brand_id %> -->
    <%=     collection_select :inventory, :brand_id, Brand.all, :id, :name,  prompt: false %>
    </div>
 
@@ -55,59 +58,49 @@
   </div>
 
   <div class="field">
-    <% f.label :supplier_id %>
     Supplier:
-   <!-- <%= f.text_field :supplier_id %> -->
    <%=     collection_select :inventory, :supplier_id, Supplier.all, :id, :name,  prompt: false %>
   </div>
+    <div class="field">
+     Unit price (uah):
+      <%= f.text_field :price_curry %>
+    </div>
 
 
-  <div class="field">
-    Price (usd): <% f.label :price_usd %>
+
+<!--
+    <div class="field">
+      Sum (uah):
+      <%= f.text_field :sum_curry %>
+    </div>
+    <div class="field">
+      Currency:
+      <%=     collection_select :inventory, :currency_id, Currency.all, :id, :name,  prompt: false %>
+    </div>
+
+    <div class="field">
+      Rate:
+      <%=     collection_select :inventory, :ratecurry_id, Ratecurry.all, :id, :rate,  prompt: false %>
+    </div>
+-->
+    <div class="field">
+    Unit price (usd):
     <%= f.text_field :price_usd %>
   </div>
 
-  <div class="field">
-    Sum (usd): <% f.label :sum_usd %>
+  <!--<div class="field">
+    Sum (usd):
     <%= f.text_field :sum_usd %>
-  </div>
+  </div> -->
 
 
   <div class="field">
-    Price (uah): <% f.label :price_curry %>
-    <%= f.text_field :price_curry %>
-  </div>
-
-  <div class="field">
-    Sum (uah): <% f.label :sum_curry %>
-    <%= f.text_field :sum_curry %>
-  </div>
-
-
- <!-- <div class="field">
-     <% f.label :ratecurry_id %>
-     Rate:
-    <%=     collection_select :inventory, :ratecurry_id, Ratecurry.all, :id, :rate,  prompt: false %>
-  </div>
-
-  <div class="field">
-     Currency: <% f.label :currency_id %>
-  <%=     collection_select :inventory, :currency_id, Currency.all, :id, :name,  prompt: false %>
-  </div>  -->
-
-
-  <div class="field">
-    Unit: <% f.label :unit_id %>
-   <!-- <%= f.number_field :unit_id %> -->
-  <%=     collection_select :inventory, :unit_id, Unit.all, :id, :name,  prompt: false %>
-  </div>
-
-  <div class="field">
-    Use Type : <% f.label :unit_id %>
+    Use Type :
   <%=     collection_select :inventory, :usingtype_id, Usingtype.all, :id, :name,  prompt: false %>
   </div>
   
   <div class="actions">
+
     <%= f.submit %>
   </div>
 

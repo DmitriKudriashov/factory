@@ -24,12 +24,19 @@ body {
   font-size: 14px;
 }
 
-x:hover {background-color:#588600;}
+x:hover {background-color: aqua;}
+.border_solidblack1pt{border:solid black 1.0pt;}
+.invest {background-color: aqua ; border:solid black 1.0pt;}
+.green {background-color: greenyellow ;border:solid black 1.0pt}
+.white {background-color: white ; border:solid black 1.0pt}
+.gray {background-color: lightgrey ; border:solid black 1.0pt}
+.aqua {background-color: aqua ; border:solid black 1.0pt}
+.lightseagreen {background-color: lightgreen ;}
+.skyblue {background-color: skyblue ;}
 
 .bold{font-weight: bolder }
 
 .tabstyle08{width:800.0pt; margin-left:1000 pt; border-collapse:collapse;font-weight: bolder;}
-
 .tabstyle{width:1000.0pt; margin-left:1000 pt; border-collapse:collapse;font-weight: bolder;}
 .tabstyle2{width:1200.0pt; margin-left:1000 pt; border-collapse:collapse;font-weight: bolder;}
 

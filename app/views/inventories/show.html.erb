@@ -13,43 +13,58 @@
   <strong>quantity:</strong>
   <%= @inventory.quantity %>
 </p>
+
 <p>
   <strong>Budgetsitems:</strong>
-  <%= @inventory.budgetitem_id %>
+  <%= @inventory.budgetitem.name %>
 </p>
 
 <p>
   <strong>Descriptions:</strong>
-  <%= @inventory.description_id %>
+  <%= @inventory.description.name %>
 </p>
 
 <p>
   <strong>Brands:</strong>
-  <%= @inventory.brand_id %>
+  <%= @inventory.brand.name %>
 </p>
 
 <p>
-  <strong>serial_number:</strong>
+  <strong>Serial number:</strong>
   <%= @inventory.serial_number %>
 </p>
 
 <p>
   <strong>Suppliers:</strong>
-  <%= @inventory.supplier_id %>
+  <%= @inventory.supplier.name %>
 </p>
 
 <p>
-  <strong>price_curry:</strong>
+  <strong>Unit price(cur-cy):</strong>
   <%= @inventory.price_curry %>
 </p>
 
+
 <p>
-  <strong>sum_curry:</strong>
+  <strong>Sum (cur-cy):</strong>
   <%= @inventory.sum_curry %>
 </p>
 
+
+<!--
 <p>
-  <strong>price_usd:</strong>
+  <strong>Currencies:</strong>
+  <%= @inventory.currency.name %>
+</p>
+
+<p>
+  <strong>Ratecurries:</strong>
+  <%= @inventory.ratecurry.rate %>
+</p>
+-->
+
+<p>
+  <strong>Unit price(usd):</strong>
   <%= @inventory.price_usd %>
 </p>
 
@@ -59,23 +74,18 @@
 </p>
 
 <p>
-  <strong>Ratecurries:</strong>
-  <%= @inventory.ratecurry_id %>
-</p>
-
-<p>
-  <strong>Currencies:</strong>
-  <%= @inventory.currency_id %>
-</p>
-
-<p>
   <strong>Units:</strong>
-  <%= @inventory.unit_id %>
+  <%= @inventory.unit.name %>
 </p>
 
 <p>
   <strong>Type:</strong>
   <%= @inventory.usingtype.name %>
+</p>
+
+<p>
+  <strong>Message :</strong>
+  <%= @message %>
 </p>
 
 <%= link_to 'Edit', edit_inventory_path(@inventory) %> |

@@ -5,11 +5,13 @@ class InventoriesController < ApplicationController
   # GET /inventories.json
   def index
     @inventories = Inventory.all
+ 
   end
 
   # GET /inventories/1
   # GET /inventories/1.json
   def show
+
   end
 
   # GET /inventories/new
@@ -19,6 +21,9 @@ class InventoriesController < ApplicationController
 
   # GET /inventories/1/edit
   def edit
+
+    @message = 'Message: EDIT '
+
   end
 
   # POST /inventories
@@ -27,7 +32,7 @@ class InventoriesController < ApplicationController
     @inventory = Inventory.new(inventory_params)
 
     respond_to do |format|
-      #@inventory.rate = calc_rate_to_date(@inventory.currency_id, in_date_rate)
+       cals_summs
       if @inventory.save
         format.html { redirect_to @inventory, notice: 'Inventory was successfully created.' }
         format.json { render :show, status: :created, location: @inventory }
@@ -41,9 +46,14 @@ class InventoriesController < ApplicationController
   # PATCH/PUT /inventories/1
   # PATCH/PUT /inventories/1.json
   def update
+    @message = 'Message: UPDATE '
     respond_to do |format|
+
       if @inventory.update(inventory_params)
-        format.html { redirect_to @inventory, notice: 'Inventory was successfully updated.' }
+        cals_summs
+
+        @message = '!!!!!!   UPDATED !!!!!! '
+        format.html { redirect_to @inventory, notice: '!!!! Inventory was successfully updated.' }
         format.json { render :show, status: :ok, location: @inventory }
       else
         format.html { render :edit }
@@ -62,8 +72,51 @@ class InventoriesController < ApplicationController
     end
   end
 
+  def find_id_rate_to_date(in_currency_id, in_date_rate)
+    rates_all = Ratecurry.all.where('currency_id = ? and date_rate <= ?',in_currency_id, in_date_rate)
+    date_max  = rates_all.maximum('date_rate')
+    ratecurry_id  = rates_all.where(date_rate: date_max).first.id
+
+  end
+
+  def calc_price_usd
+    @message = 'Message: xxxxx '
+    @inventory.ratecurry_id  = find_id_rate_to_date(@inventory.currency_id, @inventory.date_investment)
+    rt = Ratecurry.all.where(id: @inventory.ratecurry_id).first.rate
+    if rt > 0
+      @message = 'Message rt = '+ rt.to_s
+      @inventory.price_usd = @inventory.price_curry / rt
+
+    end
+  end
+
+   def cals_summs
+     if @inventory.price_curry.nil?
+      pcurry = 0
+     else
+       pcurry = @inventory.price_curry
+     end
+     if @inventory.price_usd.nil?
+       pusd = 0
+     else
+       pusd = @inventory.price_usd
+     end
+     if @inventory.quantity.nil?
+       qtty = 0
+     else
+       qtty = @inventory.quantity
+     end
+
+     @inventory.sum_curry = pcurry * qtty
+     @inventory.sum_usd   = pusd * qtty
+     @inventory.save
+
+
+   end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+  # Use callbacks to share common setup or constraints between actions.
     def set_inventory
       @inventory = Inventory.find(params[:id])
     end

@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th  colspan="5" class = "celltab20center"> Id </th>
       <th  colspan="5" class = "celltab100center">Type name</th>
       <th colspan="3"></th>
     </tr>
@@ -13,6 +14,7 @@
   <tbody>
     <% @usingtypes.each do |usingtype| %>
       <tr>
+        <td colspan="5" class = "celltab20center"><%= usingtype.id %></td>
         <td colspan="5" class = "celltab100left"><%= usingtype.name %></td>
         <td colspan="5" class = "s_e_d"><%= link_to 'Show', usingtype %></td>
         <td colspan="5" class = "s_e_d"><%= link_to 'Edit', edit_usingtype_path(usingtype) %></td>

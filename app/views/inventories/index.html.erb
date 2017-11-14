@@ -1,46 +1,48 @@
 <p id="notice"><%= notice %></p>
-<h1>Inventories</h1>
+<h1  class = "lightseagreen" >INVESTEMENT</h1><br>
+<br>
 <table>
   <thead>
     <tr>
       <th colspan="5" class = "celltab20"> N </th>
       <th colspan="5" class = "celltab30">Date</th>
-      <th colspan="2" class = "celltab40"> Quantity</th>
-      <th colspan="5" class = "celltab100center"> B/Item</th>
-      <th colspan="5" class = "celltab100center"> Description</th>
+      <th colspan="2" class = "celltab40">Quantity</th>
+      <th colspan="5" class = "celltab30">Unit</th>
+      <th colspan="5" class = "celltab100center">B/Item</th>
+      <th colspan="5" class = "celltab100center">Description</th>
       <th colspan="5" class = "celltab100center">Brand</th>
       <th colspan="5" class = "celltab100center">Serial Numer</th>
       <th colspan="5" class = "celltab100center">Suppliers</th>
-      <th colspan="5" class = "celltab50">Price (USD)</th>
-      <th colspan="5" class = "celltab50">Sum   (USD)</th>
-      <th colspan="5" class = "celltab50">Price (UAH)</th>
-      <th colspan="5" class = "celltab50">Sum   (UAH)</th>
-     <!-- <th>Rate   </th>
+      <th colspan="5" class = "celltab50">Price (usd)</th>
+      <th colspan="5" class = "celltab50">Sum   (usd)</th>
+      <th colspan="5" class = "celltab50">Price (uah)</th>
+      <th colspan="5" class = "celltab50">Sum   (uah)</th>
+      <!-- <th>Rate   </th>
       <th>Currency</th> -->
-      <th colspan="5" class = "celltab30">Unit</th>
-      <th colspan="5" class = "celltab30">Using</th>
+      <th colspan="5" class = "celltab30">Type</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @inventories.each do |inventory| %>
+    <% inventory_color(inventory.usingtype_id) %>
       <tr>
         <td colspan="5" class = "celltab20"> <%= inventory.id %></td>
-        <td colspan="5" class = "celltab30"><%= inventory.date_investment.strftime("%d.%m.%y") %></td>
-        <td colspan="2" class = "celltab40right"><%= inventory.quantity %></td>
-        <td colspan="5" class = "celltab100left"><%= inventory.budgetitem.name %></td>
-        <td colspan="5" class = "celltab100left"><%= inventory.description.name %></td>
-        <td colspan="5" class = "celltab100left"><%= inventory.brand.name %></td>
-        <td colspan="5" class = "celltab100left"><%= inventory.serial_number %></td>
+        <td colspan="5" class = " <%= @color %> "> <%= inventory.date_investment.strftime("%d.%m.%y") %></td>
+        <td colspan="2" class = " <%= @color %> " ><%= inventory.quantity %></td>
+        <td colspan="5" class = " <%= @color %> " ><%= inventory.unit.name %> </td>
+        <td colspan="5" class = " <%= @color %> " ><%= inventory.budgetitem.name %></td>
+        <td colspan="5" class = " <%= @color %> " ><%= inventory.description.name %></td>
+        <td colspan="5" class = " <%= @color %> " ><%= inventory.brand.name %></td>
+        <td colspan="5" class = " <%= @color %> " ><%= inventory.serial_number %></td>
         <td colspan="5" class = "celltab100left"><%= inventory.supplier.name %></td>
         <td colspan="5" class = "celltab50right"><%= inventory.price_usd %></td>
-        <td colspan="5" class = "celltab50right"><%= inventory.sum_usd %></td>
+        <td colspan="5" class = "celltab50right lightseagreen"><%= inventory.sum_usd %></td>
         <td colspan="5" class = "celltab50right"><%= inventory.price_curry %></td>
-        <td colspan="5" class = "celltab50right"><%= inventory.sum_curry %></td>
+        <td colspan="5" class = "celltab50right skyblue"><%= inventory.sum_curry %></td>
      <!--   <td><%= inventory.ratecurry.rate %></td>
         <td><%= inventory.currency.name %></td>-->
-        <td colspan="5" class = "celltab30"><%= inventory.unit.name %> </td>
         <td colspan="5" class = "celltab30"><%= inventory.usingtype.name %> </td>
         <td colspan="5" class = "s_e_d"><%= link_to 'Show', inventory %></td>
         <td colspan="5" class = "s_e_d"><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
@@ -54,3 +56,9 @@
 
 <%= link_to 'New Inventory', new_inventory_path %><br>
 <%= link_to 'Back to Startpage', :root  %>
+
+
+<p>
+  <strong>Message :</strong>
+  <%= @message %>
+</p>
