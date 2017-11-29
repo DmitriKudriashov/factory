@@ -18,12 +18,12 @@
 
   <div class="field">
     Model Date   : <% f.label :date_model %>
-    <% if not @modelset.date_model.nil? %>
-    <%= f.date_field :date_model , :value => @modelset.date_model.strftime("%d.%m.%Y")  %>
-    <% else %>
-    <%= f.date_field :date_model %>
-    <% end %>
+    <% if  @modelset.date_model.nil? %>
+     <% @modelset.date_model = Date.today %>
+   <% end %>
+    <%= f.date_select :date_model , :value => @modelset.date_model.strftime("%d.%m.%Y")  %>
   </div>
+
 
   <div class="field">
     Product      :<% f.label :product_id %>

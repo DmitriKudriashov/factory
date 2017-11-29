@@ -13,11 +13,10 @@
 
   <div class="field">
      Date: 
-   <% if not @inventory.date_investment.nil? %>
-    <%= f.date_field :date_investment , :value => @inventory.date_investment.strftime("%d.%m.%Y")  %>
-    <% else %>
-    <%= f.date_field :date_investment %>
+   <% if  @inventory.date_investment.nil? %>
+        <% @inventory.date_investment = Time.now() %>
     <% end %>
+    <%= f.date_select :date_investment , :value => @inventory.date_investment.strftime("%d.%m.%Y")  %>
   </div>
 
   <div class="field">

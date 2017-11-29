@@ -31,12 +31,10 @@
 
   <div class="field">
     <%= 'Rate date ' %><br />
-    <% if not @ratecurry.date_rate.nil? %>
-    <%= f.date_field :date_rate , :value => @ratecurry.date_rate.strftime("%d.%m.%Y")  %>
-    <% else %>
-    <%= f.date_field :date_rate %>
+    <% if  @ratecurry.date_rate.nil? %>
+        <% @inventory.date_investment = Date.today %>
     <% end %>
-    
+    <%= f.date_select :date_rate , :value => @ratecurry.date_rate.strftime("%d.%m.%Y")  %>
   </div>
 
   <div class="actions">

@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 20171107123405) do
 
   create_table "modelsets", force: :cascade do |t|
     t.string   "number_model"
-    t.date     "date_model",   default: '2017-10-27', null: false
+    t.date     "date_model",                          null: false
     t.integer  "product_id"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false

@@ -7,6 +7,33 @@
 
 The dependency tzinfo-data (>= 0) will be unused by any of the platforms Bundler is installing for. Bundler is installing for ruby but the dependency is only for x86-mingw32, x86-mswin32, x64-mingw32, java. To add those platforms to the bundle, run `bundle lock --add-platform x86-mingw32 x86-mswin32 x64-mingw32 java`.
 
+--------------------------------------------------------------
+01107703900000005600 
+01107703900000005700
+01107703900000006300 Миндер Борис Владимирович Семенова Надежда Ивановна
+--------------------------------------------------------------
+Дата: 27.09.2017 13:28:32 Отримано: 200.00 грн
+--------------------------------------------------------------
+
+Add-on                                              Plan       Price  State
+──────────────────────────────────────────────────  ─────────  ─────  ───────
+heroku-postgresql (postgresql-perpendicular-22047)  hobby-dev  free   created
+ └─ as DATABASE
+
+The table above shows add-ons and the attachments to the current app (pacific-woodland-85432) or other apps.
+
+Admin@dml ~/Sites/test/factory (master) $ heroku addons:create heroku-postgresql:hobby-dev
+Creating heroku-postgresql:hobby-dev on ⬢ pacific-woodland-85432... free
+Database has been created and is available
+ ! This database is empty. If upgrading, you can transfer
+ ! data from another database with pg:copy
+Created postgresql-octagonal-66549 as HEROKU_POSTGRESQL_PINK_URL
+Use heroku addons:docs heroku-postgresql to view documentation
+
+
+git commit -am "Heroku ready"
+git push heroku master
+========================================================================================
 7. 
 
 git push origin :"удалямая ветка" ----------- удалить ветку на сервере гит
@@ -47,3 +74,8 @@ git remote add origin https://github.com/ИМЯ_ПОЛЬЗОВАТЕЛЯ/ИМЯ_
 git push -u origin master
 После чего обновите страницу на сайте, и там появится ваши файлы.
 
+==============
+
+  <!--   <td><%= inventory.ratecurry.rate %></td>
+        <td><%= inventory.currency.name %></td>-->
+   
