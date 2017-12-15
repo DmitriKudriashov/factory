@@ -9,11 +9,16 @@ class StartpageController < ActionController::Base
   end
 
   def authenticate
-    if not (@user_name = "userx" )
+      @login_user = false
       authenticate_or_request_with_http_basic do |username, password|
-        #username == "userx" && password == "xxx"
-         @user_name = "userx"
+         @login_user = (username == "userx" && password == "xxx" )
       end
-    end
+
+      if  @login_user 
+           @user_name = "userx"
+      end
+      @login_user
   end
-end
+
+end 
+

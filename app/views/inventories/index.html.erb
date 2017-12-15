@@ -7,23 +7,22 @@
       <th colspan="5" class = "celltab20"> N </th>
       <th colspan="5" class = "celltab30">Date</th>
       <th colspan="2" class = "celltab40">Quantity</th>
-      <th colspan="5" class = "celltab30">Unit</th>
-      <th colspan="5" class = "celltab100center">B/Item</th>
+      <th colspan="5" class = "celltab40">Unit</th>
+      <th colspan="5" class = "celltab100center">Budget</br> Item</th>
       <th colspan="5" class = "celltab100center">Description</th>
       <th colspan="5" class = "celltab100center">Brand</th>
       <th colspan="5" class = "celltab100center">Serial Numer</th>
       <th colspan="5" class = "celltab100center">Suppliers</th>
-      <th colspan="5" class = "celltab50">Price (usd)</th>
-      <th colspan="5" class = "celltab50">Sum   (usd)</th>
+      <th colspan="5" class = "celltab50">Price </br>$</th>
+      <th colspan="5" class = "celltab100center">Total $ </br> <%= @total_usd %></th>
       <th colspan="5" class = "celltab50">Price (uah)</th>
-      <th colspan="5" class = "celltab50">Sum   (uah)</th>
+      <th colspan="5" class = "celltab100center">Total (uah)</br><%= @total_uah %></th>
       <!-- <th>Rate   </th>
       <th>Currency</th> -->
       <th colspan="5" class = "celltab30">Type</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @inventories.each do |inventory| %>
     <% inventory_color(inventory.usingtype_id) %>
@@ -38,9 +37,9 @@
         <td colspan="5" class = " <%= @color %> " ><%= inventory.serial_number %></td>
         <td colspan="5" class = "celltab100left"><%= inventory.supplier.name %></td>
         <td colspan="5" class = "celltab50right"><%= inventory.price_usd %></td>
-        <td colspan="5" class = "celltab50right lightseagreen"><%= inventory.sum_usd %></td>
+        <td colspan="5" class = "celltab100right lightseagreen"><%= inventory.sum_usd %></td>
         <td colspan="5" class = "celltab50right"><%= inventory.price_curry %></td>
-        <td colspan="5" class = "celltab50right skyblue"><%= inventory.sum_curry %></td>
+        <td colspan="5" class = "celltab100right skyblue"><%= inventory.sum_curry %></td>
         <!--   <td><%= inventory.ratecurry_id %></td>
         <td><%= inventory.currency_id %></td>-->
         <td colspan="5" class = "celltab30"><%= inventory.usingtype.name %> </td>

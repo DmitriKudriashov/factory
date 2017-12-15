@@ -19,6 +19,7 @@ class CurrenciesController < ApplicationController
 
   # GET /currencies/1/edit
   def edit
+    
   end
 
   # POST /currencies

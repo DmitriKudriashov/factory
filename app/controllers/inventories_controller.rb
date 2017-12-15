@@ -5,7 +5,7 @@ class InventoriesController < ApplicationController
   # GET /inventories.json
   def index
     @inventories = Inventory.all
- 
+    totaling
   end
 
   # GET /inventories/1
@@ -21,9 +21,7 @@ class InventoriesController < ApplicationController
 
   # GET /inventories/1/edit
   def edit
-
     @message = 'Message: EDIT '
-
   end
 
   # POST /inventories
@@ -32,7 +30,7 @@ class InventoriesController < ApplicationController
     @inventory = Inventory.new(inventory_params)
 
     respond_to do |format|
-       cals_summs
+      cals_summs
       if @inventory.save
         format.html { redirect_to @inventory, notice: 'Inventory was successfully created.' }
         format.json { render :show, status: :created, location: @inventory }
@@ -110,8 +108,12 @@ class InventoriesController < ApplicationController
      @inventory.sum_curry = pcurry * qtty
      @inventory.sum_usd   = pusd * qtty
      @inventory.save
+     totaling 
+   end
 
-
+   def totaling         
+     @total_usd = @inventories.sum(:sum_usd)
+     @total_uah = @inventories.sum(:sum_curry)
    end
 
   private
