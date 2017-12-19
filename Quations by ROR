@@ -78,4 +78,21 @@ git push -u origin master
 
   <!--   <td><%= inventory.ratecurry.rate %></td>
         <td><%= inventory.currency.name %></td>-->
+
+
+
+=================================================================================================================================
+
+Host: ec2-23-21-158-253.compute-1.amazonaws.com
+Database: d81k5ove34fadi
+User: aqnkoanzoctjpq
+Port: 5432
+Password: 3aa238c6b3946621f7b30239d8cb9829b0452af4bddd99a3199972c57d73808b
+URI: postgres://aqnkoanzoctjpq:3aa238c6b3946621f7b30239d8cb9829b0452af4bddd99a3199972c57d73808b@ec2-23-21-158-253.compute-1.amazonaws.com:5432/d81k5ove34fadi
+Heroku CLI: heroku pg:psql postgresql-perpendicular-22047 --app pacific-woodland-85432
+
+
+
+
+
    
