@@ -14,7 +14,7 @@
   <div class="field">
      Date: 
    <% if  @inventory.date_investment.nil? %>
-        <% @inventory.date_investment = Time.now() %>
+       <% @inventory.date_investment =  Date.today %>
     <% end %>
     <%= f.date_select :date_investment , :value => @inventory.date_investment.strftime("%d.%m.%Y")  %>
   </div>
