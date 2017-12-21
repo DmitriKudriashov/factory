@@ -1,3 +1,3 @@
 class Budgetitem < ApplicationRecord
-	has_many :budgetitems
+	has_many :inventories
 end

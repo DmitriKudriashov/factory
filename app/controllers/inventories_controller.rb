@@ -17,6 +17,22 @@ class InventoriesController < ApplicationController
   # GET /inventories/new
   def new
     @inventory = Inventory.new
+    @inventory.quantity = 0
+    @inventory.budgetitem_id = 1
+    @inventory.description_id = 1
+    @inventory.brand_id = 1
+    @inventory.serial_number ='????????' 
+    @inventory.supplier_id = 1
+    @inventory.price_curry =0 
+    @inventory.sum_curry = 0
+    @inventory.price_usd =0 
+    @inventory.sum_usd = 0
+ #   @inventory.ratecurry_id = 
+ #   @inventory.currency_id = 
+    @inventory.unit_id = 1
+    @inventory.date_investment = Date.today()
+    @inventory.usingtype_id = 1
+
   end
 
   # GET /inventories/1/edit
