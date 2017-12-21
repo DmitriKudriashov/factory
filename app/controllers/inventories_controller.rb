@@ -4,7 +4,7 @@ class InventoriesController < ApplicationController
   # GET /inventories
   # GET /inventories.json
   def index
-    @inventories = Inventory.all
+    #inventory_all
     totaling
   end
 
@@ -127,10 +127,14 @@ class InventoriesController < ApplicationController
      totaling 
    end
 
-   def totaling         
+   def totaling   
+     inventory_all      
      @total_usd = @inventories.sum(:sum_usd)
      @total_uah = @inventories.sum(:sum_curry)
    end
+    def inventory_all
+      @inventories = Inventory.all
+    end
 
   private
 
