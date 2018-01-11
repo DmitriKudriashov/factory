@@ -5,8 +5,8 @@ class Inventory < ApplicationRecord
 	belongs_to :supplier
 	#belongs_to :ratecurry
 	#belongs_to :currency
-	belongs_to :unit
 	belongs_to :usingtype
-
+	belongs_to :unit
+#	validates  :unit_id, presence: true
 end
     

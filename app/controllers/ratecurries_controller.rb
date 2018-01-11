@@ -68,6 +68,17 @@ class RatecurriesController < ApplicationController
     end
   end
 
+  def rate_to_date (id_cur, dt)
+       @rate_to_date = 10000000000000000000000
+       rfrst = Ratecurry.all.where("date_rate <= ? and currency_id = ?",dt, id_cur).first
+     if Not rfrst.nil?
+       @rate_to_date = rfrst.rate
+    
+    end
+
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ratecurry
@@ -78,4 +89,5 @@ class RatecurriesController < ApplicationController
     def ratecurry_params
       params.require(:ratecurry).permit(:currency_id, :rate, :date_rate)
     end
+
 end
