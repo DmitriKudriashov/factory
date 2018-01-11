@@ -1,3 +1,3 @@
 class Usingtype < ApplicationRecord
-	has_many :invertories
+	has_many :inventories, dependent: :restrict_with_error 
 end

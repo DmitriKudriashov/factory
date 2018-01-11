@@ -1,8 +1,10 @@
 class Currency < ApplicationRecord
 #	has_many :inventories
-	before_destroy :check_links
-	has_many :ratecurries, inverse_of: :currency, dependent: :destroy
-	has_many :cashes
+	#before_destroy :check_links
+	has_many :ratecurries, dependent: :restrict_with_error 
+	#:restrict_with_exception
+	#inverse_of: :currency, dependent: :destroy
+	has_many :cashes, dependent: :restrict_with_error 
 
 	 private
 
