@@ -1,4 +1,4 @@
-<%= form_for(currency) do |f| %>
+  <%= form_for(currency) do |f| %>
   <% if currency.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(currency.errors.count, "error") %> prohibited this currency from being saved:</h2>
@@ -12,9 +12,8 @@
   <% end %>
   
   <div class="field">
-    <%= f.label :id %>
-    <%= f.text_field :id %>
-    <%  id_it =  f.text_field :id %> 
+    <%# f.label :id %>
+    <%# f.text_field :id %>
   </div>
   <div class="field">
     <%= f.label :name %>
@@ -26,36 +25,32 @@
     <%= f.text_field :curry_code %>
   </div>
 
-
-
   <div class="actions">
     <%= f.submit %>
   </div>
-  
-  <% @ratecurries = Ratecurry.all.where(currency_id: id_it) %> 
  
-  <table>
-    <thead>
+  
+  
+ <table>
+  <% @ratecurries = Ratecurry.all.where(:currency_id => params[:id]) %> 
+  <thead>
+    <tr>
+      <th colspan="5" class = "celltab50center">Rate</th>
+      <th colspan="5" class = "celltab50center">Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ratecurries.each do |ratecurry| %>
       <tr>
-        <th>N record </th>
-        <th>Currencies</th>
-        <th>Rate</th>
-        <th colspan="3"></th>
+        <td colspan="5" class = "celltab50right"> <%= ratecurry.rate %></td>
+        <td colspan="5" class = "celltab50center"><%= ratecurry.date_rate.strftime("%d.%m.%y")  %></td>
+        <td colspan="5" class = "s_e_d"><%= link_to 'Edit', edit_ratecurry_path(ratecurry) %></td>
+        <td colspan="5" class = "s_e_d"><%= link_to 'Destroy', ratecurry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    </thead>
-
-    <tbody>
-      <% @ratecurries.each do |ratecurry| %>
-        <tr>
-          <td><%= ratecurry.id %></td>
-          <td><%= ratecurry.currency_id %></td>
-          <td><%= ratecurry.rate %></td>
-          <td><%= link_to 'Show', ratecurry %></td>
-          <td><%= link_to 'Edit', edit_ratecurry_path(ratecurry) %></td>
-          <td><%= link_to 'Destroy', ratecurry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-
+    <% end %>
+  </tbody>
+</table>
+</br></br>
 <% end %>
