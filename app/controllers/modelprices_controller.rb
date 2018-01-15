@@ -54,11 +54,14 @@ class ModelpricesController < ApplicationController
   # DELETE /modelprices/1
   # DELETE /modelprices/1.json
   def destroy
-    @modelprice.destroy
-    respond_to do |format|
-      format.html { redirect_to modelprices_url, notice: 'Modelprice was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    f_respond_destroy(@modelprice.destroy, @modelprice.id.to_s, modelprices_url)
+
+
+#    @modelprice.destroy
+#   respond_to do |format|
+#      format.html { redirect_to modelprices_url, notice: 'Modelprice was successfully destroyed.' }
+#      format.json { head :no_content }
+#    end
   end
 
   private

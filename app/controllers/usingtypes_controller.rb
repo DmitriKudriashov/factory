@@ -55,11 +55,13 @@ class UsingtypesController < ApplicationController
   # DELETE /usingtypes/1
   # DELETE /usingtypes/1.json
   def destroy
-    @usingtype.destroy
-    respond_to do |format|
-      format.html { redirect_to usingtypes_url, notice: 'Usingtype was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    f_respond_destroy(@usingtype.destroy, @usingtype.name, usingtypes_url)
+#
+#    @usingtype.destroy
+#    respond_to do |format|
+#     format.html { redirect_to usingtypes_url, notice: 'Usingtype was successfully destroyed.' }
+#      format.json { head :no_content }
+#    end
   end
 
   private

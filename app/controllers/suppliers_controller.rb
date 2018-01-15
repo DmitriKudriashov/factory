@@ -54,11 +54,14 @@ class SuppliersController < ApplicationController
   # DELETE /suppliers/1
   # DELETE /suppliers/1.json
   def destroy
-    @supplier.destroy
-    respond_to do |format|
-      format.html { redirect_to suppliers_url, notice: 'Supplier was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    f_respond_destroy(@supplier.destroy, @supplier.name, suppliers_url)
+
+#
+#    @supplier.destroy
+#    respond_to do |format|
+#      format.html { redirect_to suppliers_url, notice: 'Supplier was successfully destroyed.' }
+#      format.json { head :no_content }
+#    end
   end
 
   private

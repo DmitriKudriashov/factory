@@ -1,12 +1,10 @@
 class Currency < ApplicationRecord
 #	has_many :inventories
-	#before_destroy :check_links
+#   before_destroy :check_links
 	has_many :ratecurries, dependent: :restrict_with_error 
-	#:restrict_with_exception
-	#inverse_of: :currency, dependent: :destroy
 	has_many :cashes, dependent: :restrict_with_error 
 
-	 private
+   private
 
 	def check_links
 		 if ratecurries.any?
@@ -16,10 +14,5 @@ class Currency < ApplicationRecord
 		 	 errors[:base] << "DELETED record "
 		 	return true
 		 end
-
-	#	r = Ratecurry.all.where("currency_id = ?", :id)
-	#	if r.nil?
-	#		return false
-	#    end	
 	end
 end

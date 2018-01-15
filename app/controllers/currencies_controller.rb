@@ -55,11 +55,13 @@ class CurrenciesController < ApplicationController
   # DELETE /currencies/1
   # DELETE /currencies/1.json
   def destroy
-    @currency.destroy
-    respond_to do |format|
-      format.html { redirect_to currencies_url, notice: 'Currency was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    f_respond_destroy(@currency.destroy, @currency.name, currencies_url)
+#
+#    @currency.destroy
+#    respond_to do |format|
+#      format.html { redirect_to currencies_url, notice: 'Currency was successfully destroyed.' }
+#      format.json { head :no_content }
+#    end
   end
 
   private

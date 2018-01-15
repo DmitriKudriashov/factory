@@ -54,11 +54,12 @@ class BudgetitemsController < ApplicationController
   # DELETE /budgetitems/1
   # DELETE /budgetitems/1.json
   def destroy
-    @budgetitem.destroy
-    respond_to do |format|
-      format.html { redirect_to budgetitems_url, notice: 'Budgetitem was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+        f_respond_destroy(@budgetitem.destroy, @budgetitem.name, budgetitems_url)
+#    @budgetitem.destroy
+#    respond_to do |format|
+#      format.html { redirect_to budgetitems_url, notice: 'Budgetitem was successfully destroyed.' }
+#      format.json { head :no_content }
+#    end
   end
 
   private

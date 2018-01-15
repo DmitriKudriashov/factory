@@ -54,11 +54,13 @@ class DescriptionsController < ApplicationController
   # DELETE /descriptions/1
   # DELETE /descriptions/1.json
   def destroy
-    @description.destroy
-    respond_to do |format|
-      format.html { redirect_to descriptions_url, notice: 'Description was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    f_respond_destroy(@description.destroy, @description.name, descriptions_url)
+#
+#    @description.destroy
+#    respond_to do |format|
+#      format.html { redirect_to descriptions_url, notice: 'Description was successfully destroyed.' }
+#      format.json { head :no_content }
+#    end
   end
 
   private

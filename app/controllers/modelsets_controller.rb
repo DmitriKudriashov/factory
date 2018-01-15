@@ -54,11 +54,13 @@ class ModelsetsController < ApplicationController
   # DELETE /modelsets/1
   # DELETE /modelsets/1.json
   def destroy
-    @modelset.destroy
-    respond_to do |format|
-      format.html { redirect_to modelsets_url, notice: 'Modelset was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    f_respond_destroy(@modelset.destroy, @modelset.number_model, modelsets_url )
+
+#    @modelset.destroy
+#    respond_to do |format|
+#      format.html { redirect_to modelsets_url, notice: 'Modelset was successfully destroyed.' }
+#      format.json { head :no_content }
+#    end
   end
 
   private

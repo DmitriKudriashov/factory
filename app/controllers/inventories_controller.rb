@@ -79,11 +79,13 @@ class InventoriesController < ApplicationController
   # DELETE /inventories/1
   # DELETE /inventories/1.json
   def destroy
-    @inventory.destroy
-    respond_to do |format|
-      format.html { redirect_to inventories_url, notice: 'Inventory was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    f_respond_destroy(@inventory.destroy, @inventory.id.to_s, inventories_url)
+#
+#    @inventory.destroy
+#    respond_to do |format|
+#      format.html { redirect_to inventories_url, notice: 'Inventory was successfully destroyed.' }
+#      format.json { head :no_content }
+#    end
   end
 
   def find_id_rate_to_date(in_currency_id, in_date_rate)

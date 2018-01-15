@@ -54,17 +54,13 @@ class UnitsController < ApplicationController
   # DELETE /units/1
   # DELETE /units/1.json
   def destroy
-    @unit.destroy
-    respond_to do |format|
-      format.html { redirect_to units_url, notice: 'Unit was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    f_respond_destroy(@unit.destroy, @unit.name, units_url)
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_unit
-      @unit = Unit.find(params[:id])
+        @unit = Unit.find(params[:id])  
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
@@ -72,3 +68,4 @@ class UnitsController < ApplicationController
       params.require(:unit).permit(:name)
     end
 end
+ 

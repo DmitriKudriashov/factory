@@ -61,11 +61,13 @@ class RatecurriesController < ApplicationController
   # DELETE /ratecurries/1
   # DELETE /ratecurries/1.json
   def destroy
-    @ratecurry.destroy
-    respond_to do |format|
-      format.html { redirect_to ratecurries_url, notice: 'Ratecurry was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+        f_respond_destroy(@ratecurry.destroy, @ratecurry.id.to_s, ratecurries_url)
+#
+#    @ratecurry.destroy
+#    respond_to do |format|
+#      format.html { redirect_to ratecurries_url, notice: 'Ratecurry was successfully destroyed.' }
+#      format.json { head :no_content }
+#    end
   end
 
   def rate_to_date (id_cur, dt)

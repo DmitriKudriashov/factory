@@ -54,11 +54,13 @@ class BrandsController < ApplicationController
   # DELETE /brands/1
   # DELETE /brands/1.json
   def destroy
-    @brand.destroy
-    respond_to do |format|
-      format.html { redirect_to brands_url, notice: 'Brand was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+        f_respond_destroy(@brand.destroy, @brand.name, brands_url)
+#
+#    @brand.destroy
+#    respond_to do |format|
+#      format.html { redirect_to brands_url, notice: 'Brand was successfully destroyed.' }
+#      format.json { head :no_content }
+#    end
   end
 
   private
