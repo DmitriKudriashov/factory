@@ -4,7 +4,7 @@ class ModelpricesController < ApplicationController
   # GET /modelprices
   # GET /modelprices.json
   def index
-    @modelprices = Modelprice.all
+    @modelprices = Modelprice.all.order(:id)
   end
 
   # GET /modelprices/1

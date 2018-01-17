@@ -4,7 +4,7 @@ class ModelsetsController < ApplicationController
   # GET /modelsets
   # GET /modelsets.json
   def index
-    @modelsets = Modelset.all
+    @modelsets = Modelset.all.order(date_model: :desc)
   end
 
   # GET /modelsets/1

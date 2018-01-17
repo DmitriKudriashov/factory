@@ -32,7 +32,7 @@
   
   
  <table>
-  <% @ratecurries = Ratecurry.all.where(:currency_id => params[:id]) %> 
+  <% @ratecurries = Ratecurry.all.where(:currency_id => params[:id]).order(date_rate: :desc ) %> 
   <thead>
     <tr>
       <th colspan="5" class = "celltab50center">Rate</th>

@@ -4,7 +4,7 @@ class BudgetitemsController < ApplicationController
   # GET /budgetitems
   # GET /budgetitems.json
   def index
-    @budgetitems = Budgetitem.all
+    @budgetitems = Budgetitem.all.order(:name)
   end
 
   # GET /budgetitems/1

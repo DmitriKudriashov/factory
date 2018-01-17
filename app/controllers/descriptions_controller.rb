@@ -4,7 +4,7 @@ class DescriptionsController < ApplicationController
   # GET /descriptions
   # GET /descriptions.json
   def index
-    @descriptions = Description.all
+    @descriptions = Description.all.order(:name)
   end
 
   # GET /descriptions/1

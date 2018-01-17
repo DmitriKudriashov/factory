@@ -4,7 +4,7 @@ class RatecurriesController < ApplicationController
   # GET /ratecurries
   # GET /ratecurries.json
   def index
-    @ratecurries = Ratecurry.all
+    @ratecurries = Ratecurry.all.order(date_rate: :desc)
   end
   def check_act
        'xxxxx'

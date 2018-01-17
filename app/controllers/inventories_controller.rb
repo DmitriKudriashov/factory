@@ -135,7 +135,7 @@ class InventoriesController < ApplicationController
      @total_uah = @inventories.sum(:sum_curry)
    end
     def inventory_all
-      @inventories = Inventory.all
+      @inventories = Inventory.all.order(date_investment: :desc)
     end
 
   private

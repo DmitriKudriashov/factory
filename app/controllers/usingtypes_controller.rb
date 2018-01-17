@@ -4,7 +4,7 @@ class UsingtypesController < ApplicationController
   # GET /usingtypes
   # GET /usingtypes.json
   def index
-    @usingtypes = Usingtype.all
+    @usingtypes = Usingtype.all.order(:id)
   end
 
   # GET /usingtypes/1
