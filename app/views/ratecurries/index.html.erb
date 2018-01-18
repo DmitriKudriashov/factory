@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th colspan="5" class = "celltab30center">No</th>
       <th colspan="5" class = "celltab100center">Currencies</th>
       <th colspan="5" class = "celltab50center">Rate</th>
       <th colspan="5" class = "celltab50center">Date</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @ratecurries.each do |ratecurry| %>
       <tr>
+        <td colspan="5" class = "celltab30center"><%= ratecurry.id %></td>
         <td colspan="5" class = "celltab100center"><%= ratecurry.currency.name %></td>
         <td colspan="5" class = "celltab50right"> <%= ratecurry.rate %></td>
         <td colspan="5" class = "celltab50center"><%= ratecurry.date_rate.strftime("%d.%m.%y")  %></td>

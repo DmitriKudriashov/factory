@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180104095917) do
+ActiveRecord::Schema.define(version: 20180117131628) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 20180104095917) do
     t.date     "cash_date"
     t.integer  "currency_id"
     t.integer  "ratecurry_id"
-    t.decimal  "sum_curry",      precision: 15, scale: 2
-    t.decimal  "sum_usd",        precision: 15, scale: 2
-    t.integer  "budgetsitem_id"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
-    t.index ["budgetsitem_id"], name: "index_cashes_on_budgetsitem_id"
+    t.decimal  "sum_curry",     precision: 15, scale: 2
+    t.decimal  "sum_usd",       precision: 15, scale: 2
+    t.integer  "budgetitem_id"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.index ["budgetitem_id"], name: "index_cashes_on_budgetitem_id"
     t.index ["cash_date"], name: "index_cashes_on_cash_date"
     t.index ["currency_id"], name: "index_cashes_on_currency_id"
     t.index ["ratecurry_id"], name: "index_cashes_on_ratecurry_id"

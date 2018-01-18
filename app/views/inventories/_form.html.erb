@@ -82,10 +82,10 @@
       <%=     collection_select :inventory, :ratecurry_id, Ratecurry.all, :id, :rate,  prompt: false %>
     </div>
 -->
-    <div class="field">
+   <div class="field">
     Unit price (usd):
     <%= f.text_field :price_usd %>
-  </div>
+   </div>
 
   <!--<div class="field">
     Sum (usd):
@@ -97,7 +97,7 @@
     Use Type :
   <%=     collection_select :inventory, :usingtype_id, Usingtype.all, :id, :name,  prompt: false %>
   </div>
-  
+ 
   <div class="actions">
 
     <%= f.submit %>

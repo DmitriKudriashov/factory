@@ -6,11 +6,10 @@ class RatecurriesController < ApplicationController
   def index
     @ratecurries = Ratecurry.all.order(date_rate: :desc)
   end
+  
   def check_act
        'xxxxx'
   end
-
-
 
   # GET /ratecurries/1
   # GET /ratecurries/1.json
@@ -70,15 +69,7 @@ class RatecurriesController < ApplicationController
 #    end
   end
 
-  def rate_to_date (id_cur, dt)
-       @rate_to_date = 10000000000000000000000
-       rfrst = Ratecurry.all.where("date_rate <= ? and currency_id = ?",dt, id_cur).first
-     if Not rfrst.nil?
-       @rate_to_date = rfrst.rate
     
-    end
-
-  end
 
 
   private
