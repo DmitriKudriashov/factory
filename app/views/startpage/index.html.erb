@@ -4,18 +4,18 @@
 </h1>
 
 <br>
-<% @all_incoming =  0 %> 
+<%# @all_incoming =  0 %> 
 <!-- Cash.all.sum(:sum_usd)-->
-<% @all_investment = calc_inventory_total_usd %>
-<% @balance = @all_incoming - @all_investment%>
-<% @clr_cond = color_by_condition(@balance)  %>
+<%# @all_investment = calc_inventory_total_usd %>
+<%# @balance = @all_incoming - @all_investment%>
+<%# @clr_cond = color_by_condition(@balance)  %>
 <!--<%# link_to 'INVENTORY',  'inventories'  %>(  total: $<%#Inventory.all.sum(:sum_usd) %> ) <br>-->
 
-<%= link_to 'INCOMING CASH',  'cashes'  %> (  total: $<%= @all_incoming.to_s %> )<br>
-<%= link_to 'INVENTORY',  'inventories'  %>(  total: $<%= @all_investment.to_s %> ) 
-<% @clr_cond %><br>
-<a style="color: aqua; background-color: navy ">   Balance: </a> <a style =" <%= @clr_cond %> "> <%= @balance.to_s %>  </a>
-<br>
+<%= link_to 'INCOMING CASH',  'cashes'  %> (  total: $<%# @all_incoming.to_s %>   )  <br>
+<%= link_to 'INVENTORY',  'inventories'  %>(  total: $<%# @all_investment.to_s %> ) 
+<%# @clr_cond %><br>
+<!--<a style="color: aqua; background-color: navy ">   Balance: </a> <a style =" <%# @clr_cond %> "> <%# @balance.to_s %>  </a>
+<br>-->
 <br>
 <%= link_to 'Model Price','modelprices'  %> <br>
 <%= link_to 'Model Set',  'modelsets'  %> <br>
