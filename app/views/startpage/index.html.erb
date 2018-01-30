@@ -6,12 +6,10 @@
 <br>
 <% @all_incoming =  calc_cash_total_usd       %> 
 <% @all_investment = calc_inventory_total_usd %>
-<a style="font-family: Arial; font-size: 10px;"><%= link_to 'INCOMING CASH :',  'cashes'  %>     ( total $ <%= sprintf("%15.2f",@all_incoming)%>    ) </a> <br>
-<a style="font-family: Arial; font-size: 10px;"><%= link_to 'INVENTORY     :',  'inventories' %> ( total $ <%= sprintf("%15.2f",@all_investment) %> )  </a>
-
+<%= link_to 'INCOMING CASH :',  'cashes'  %>     ( total $ <%= sprintf("%15.2f",@all_incoming)%>    ) <br>
+<%= link_to 'INVENTORY     :',  'inventories' %> ( total $ <%= sprintf("%15.2f",@all_investment) %> )  
 <% @balance = @all_incoming - @all_investment %>
 <% @clr_cond = color_by_condition(@balance)   %><br>
-<%# @clr_cond %> 
 <a style="color: aqua; background-color: navy ">   Balance: </a> <a style =" <%= @clr_cond %> "> <%= @balance.to_s %>  </a>
 <br>
 <br>
