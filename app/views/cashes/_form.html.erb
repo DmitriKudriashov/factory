@@ -1,0 +1,47 @@
+<%= form_for(cash) do |f| %>
+  <% if cash.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cash.errors.count, "error") %> prohibited this cash from being saved:</h2>
+
+      <ul>
+      <% cash.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+     Date: 
+   <% if  @cash.cash_date.nil? %>
+       <% @cash.cash_date =  Date.today %>
+    <% end %>
+    <%= f.date_select :cash_date , :value => @cash.cash_date.strftime("%d.%m.%Y")  %>
+  </div>
+
+    <div class="field">
+      Currency:
+      <%=     collection_select :cash, :currency_id, Currency.all, :id, :name,  prompt: false %>
+    </div>
+   <!-- <div class="field">
+      Rate:
+      <%#     collection_select :cash, :ratecurry_id, Ratecurry.all, :id, :rate,  prompt: false %>
+    </div> -->
+
+   <div class="field">
+    Sum (curr-cy):
+    <%= f.text_field :sum_curry %>
+   </div>
+
+
+  <div class="field">
+    Budget Item:
+    <%=     collection_select :cash, :budgetitem_id, Budgetitem.all, :id, :name,  prompt: false %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

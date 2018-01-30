@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Id:</strong>
+  <%= @cash.id %>
+</p>
+
+
+  <p>
+    <strong> Date:</strong> 
+    <%= @cash.cash_date.strftime("%d.%m.%Y")   %>
+  </p>
+  <p>
+	 <strong>Currency:</strong>
+     <%= @cash.currency.name %>
+  </p>
+  <p>
+ 		<strong>Rate:</strong>
+      <%=     @cash.ratecurry.rate  %>
+  </p>
+
+   <p>
+     <strong>Sum (curr-cy):</strong>
+     <%= @cash.sum_curry %>
+   </p>
+   <p>
+     <strong>Sum (usd):</strong>
+     <%= @cash.sum_usd %>
+   </p>
+
+
+
+  <p>
+ 	<strong>Budget Item:</strong>
+    <%= @cash.budgetitem.name %>
+  </p>
+
+
+<%= link_to 'Edit', edit_cash_path(@cash) %> |
+<%= link_to 'Back', cashes_path %>

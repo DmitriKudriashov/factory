@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class = "skyblue">Incoming Cash</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="5" class = "celltab20"> N </th>
+      <th colspan="5" class = "celltab30">Date</th>
+      <th colspan="2" class = "celltab40">Cur- </br> rency</th>
+      <th colspan="5" class = "celltab40">rate</th>
+      <th colspan="5" class = "celltab100center">Total  </br> (currency) </br><%= @cash_total_uah %></th>
+      <th colspan="5" class = "celltab100center">Total  </br> $ </br> <%= @cash_total_usd %></th>
+      <th colspan="5" class = "celltab100center">Budget </br> item</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cashes.each do |cash| %>
+      <tr>
+        <td colspan="5" class = "celltab20"> <%= cash.id %></td>
+        <td colspan="5" class = "celltab30"> <%= cash.cash_date.strftime("%d.%m.%y") %></td>
+        <td colspan="2" class = "celltab40"> <%= cash.currency.name %> </td>
+        <td colspan="5" class = "celltab40"> <%= cash.ratecurry.rate %>  </td>
+
+        <td colspan="5" class = "celltab100center"><%= cash.sum_curry %></td>
+        <td colspan="5" class = "celltab100center"><%= cash.sum_usd %></td>
+        <td colspan="5" class = "celltab100center"><%= cash.budgetitem.name %></td>
+
+        <td><%= link_to 'Show', cash %></td>
+        <td><%= link_to 'Edit', edit_cash_path(cash) %></td>
+        <td><%= link_to 'Destroy', cash, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cash', new_cash_path %>
+<br>
+<%= link_to ' INVENTORY ', inventories_path %>
+<br>
+<%= link_to 'Back to Startpage', :root  %>
+
