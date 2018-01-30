@@ -42,5 +42,9 @@ class ApplicationController < ActionController::Base
       end
      return idrate
    end
+   
+   def f_inventory_all
+      @allinventories = Inventory.all.order(date_investment: :desc)
+   end
 
 end

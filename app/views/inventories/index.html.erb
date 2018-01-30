@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+  <p id="notice"><%= notice %></p>
 <h1  class = "lightseagreen" >INVENTORY</h1><br>
 <br>
 <table>
@@ -28,7 +28,7 @@
     <% inventory_color(inventory.usingtype_id) %>
       <tr>
         <td colspan="5" class = "celltab20"> <%= inventory.id %></td>
-        <td colspan="5" class = " <%= @color %> "> <%= inventory.date_investment.strftime("%d.%m.%y") %></td>
+        <td colspan="5" class = " <%= @color %> " ><%= inventory.date_investment.strftime("%d.%m.%y") %></td>
         <td colspan="2" class = " <%= @color %> " ><%= inventory.quantity %></td>
         <td colspan="5" class = " <%= @color %> " ><%= inventory.unit.name %> </td>
         <td colspan="5" class = " <%= @color %> " ><%= inventory.budgetitem.name %></td>

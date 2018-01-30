@@ -4,7 +4,6 @@ class InventoriesController < ApplicationController
   # GET /inventories
   # GET /inventories.json
   def index
-    #inventory_all
     totaling
   end
 
@@ -92,31 +91,46 @@ class InventoriesController < ApplicationController
     rates_all = Ratecurry.all.where('currency_id = ? and date_rate <= ?',in_currency_id, in_date_rate)
     date_max  = rates_all.maximum('date_rate')
     ratecurry_id  = rates_all.where(date_rate: date_max).first.id
-
   end
-
-  def calc_price_usd
+     
+  def calc_rate_curry
     @message = 'Message: xxxxx '
-    @inventory.ratecurry_id  = find_id_rate_to_date(@inventory.currency_id, @inventory.date_investment)
+    @inventory.ratecurry_id = f_find_ratecurry_id(@inventory.currency_id, @inventory.date_investment)
+  
+    # 280118 @inventory.ratecurry_id  = find_id_rate_to_date(@inventory.currency_id, @inventory.date_investment)
     rt = Ratecurry.all.where(id: @inventory.ratecurry_id).first.rate
     if rt > 0
       @message = 'Message rt = '+ rt.to_s
-      @inventory.price_usd = @inventory.price_curry / rt
-
+     # @inventory.price_usd = @inventory.price_curry / rt
+    else
+      rt = 1000000
     end
+    return rt
   end
 
    def cals_summs
+      
      if @inventory.price_curry.nil?
-      pcurry = 0
+       pcurry = 0
+       @inventory.currency_id = 1
      else
        pcurry = @inventory.price_curry
+       @inventory.currency_id = 2
      end
+    
      if @inventory.price_usd.nil?
        pusd = 0
      else
        pusd = @inventory.price_usd
      end
+     #----------------->
+    #   rt = 1
+    #  if pcurry>0
+    #   rt = calc_rate_curry
+    #  end
+    #   pusd = pcurry/rt
+     #----------------->
+      
      if @inventory.quantity.nil?
        qtty = 0
      else
@@ -127,14 +141,19 @@ class InventoriesController < ApplicationController
      @inventory.sum_usd   = pusd * qtty
      @inventory.save
      totaling 
+ 
    end
 
    def totaling   
-     inventory_all      
+     act_inventory_all
+
      @total_usd = @inventories.sum(:sum_usd)
      @total_uah = @inventories.sum(:sum_curry)
+     
    end
-    def inventory_all
+
+
+    def act_inventory_all
       @inventories = Inventory.all.order(date_investment: :desc)
     end
 
