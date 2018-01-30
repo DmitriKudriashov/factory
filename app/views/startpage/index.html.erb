@@ -4,7 +4,8 @@
 </h1>
 
 <br>
-<% @all_incoming = Cash.all.sum(:sum_usd) %>
+<% @all_incoming =  0 %> 
+<!-- Cash.all.sum(:sum_usd)-->
 <% @all_investment = calc_inventory_total_usd %>
 <% @balance = @all_incoming - @all_investment%>
 <% @clr_cond = color_by_condition(@balance)  %>
