@@ -26,6 +26,18 @@ module ApplicationHelper
    		end
    	    return @inventory_total_usd
    end
+
+   def calc_cash_total_usd
+   	
+   	if not Cash.count.nil?
+   	 rv = Cash.all.sum(:sum_usd)
+   	else
+   	  rv = 0
+   	end
+    
+   end
+
+
    def f_find_ratecurry_id(id_cur, dt)
         idrate = Ratecurry.all.where("date_rate <= ? and currency_id = ?", dt, id_cur).order(date_rate: :desc).first.id
       if idrate.nil?
@@ -35,9 +47,9 @@ module ApplicationHelper
    end
    
    def color_by_condition(val)
-   	clr = "color: navy; background-color: skyblue"
+   	clr = "color: navy; background-color: skyblue; font-weight: bolder; "
    	if val < 0
-   		clr = "color: yellow; background-color: red; "
+   		clr = "color: yellow; background-color: red; font-weight: bolder; "
    	end
    	return clr
    end
