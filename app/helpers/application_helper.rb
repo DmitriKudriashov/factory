@@ -39,10 +39,15 @@ module ApplicationHelper
 
 
    def f_find_ratecurry_id(id_cur, dt)
+    if id_cur = 1 
+        idrate = 1
+    else 
         idrate = Ratecurry.all.where("date_rate <= ? and currency_id = ?", dt, id_cur).order(date_rate: :desc).first.id
       if idrate.nil?
         idrate = 0
       end
+    end
+
      return idrate
    end
    
