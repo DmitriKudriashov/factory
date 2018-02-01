@@ -9,18 +9,18 @@ default: &default
   pool: 5
   timeout: 5000
 
-#development:
- # <<: *default
-  #database: db/development.sqlite3
-
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: sewingfactory
-  pool: 5
-  timeout: 5000
-  username: tailor
-  password: tailor12345
+  <<: *default
+  database: db/development.sqlite3
+
+#development:
+#  adapter: postgresql
+#  encoding: unicode
+#  database: sewingfactory
+#  pool: 5
+#  timeout: 5000
+#  username: tailor
+#  password: tailor12345
 
 
 # Warning: The database defined as "test" will be erased and
