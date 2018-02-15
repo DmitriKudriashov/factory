@@ -20,7 +20,7 @@ class InventoriesController < ApplicationController
     @inventory.budgetitem_id = 1
     @inventory.description_id = 1
     @inventory.brand_id = 1
-    @inventory.serial_number ='????????' 
+    @inventory.serial_number = '' 
     @inventory.supplier_id = 1
     @inventory.price_curry =0 
     @inventory.sum_curry = 0
@@ -63,6 +63,7 @@ class InventoriesController < ApplicationController
     respond_to do |format|
 
       if @inventory.update(inventory_params)
+
         cals_summs
 
         @message = '!!!!!!   UPDATED !!!!!! '
@@ -86,19 +87,10 @@ class InventoriesController < ApplicationController
 #      format.json { head :no_content }
 #    end
   end
-
-  def find_id_rate_to_date(in_currency_id, in_date_rate)
-    rates_all = Ratecurry.all.where('currency_id = ? and date_rate <= ?',in_currency_id, in_date_rate)
-    date_max  = rates_all.maximum('date_rate')
-    ratecurry_id  = rates_all.where(date_rate: date_max).first.id
-  end
-     
+ 
   def calc_rate_curry
-    @message = 'Message: xxxxx '
     @inventory.ratecurry_id = f_find_ratecurry_id(@inventory.currency_id, @inventory.date_investment)
-  
-    # 280118 @inventory.ratecurry_id  = find_id_rate_to_date(@inventory.currency_id, @inventory.date_investment)
-    rt = Ratecurry.all.where(id: @inventory.ratecurry_id).first.rate
+     rt = Ratecurry.all.where(id: @inventory.ratecurry_id).order(date_rate: :desc).first.rate
     if rt > 0
       @message = 'Message rt = '+ rt.to_s
      # @inventory.price_usd = @inventory.price_curry / rt
@@ -109,30 +101,33 @@ class InventoriesController < ApplicationController
   end
 
    def cals_summs
-      
-     if @inventory.price_curry.nil?
+     if @inventory.price_curry.nil? or @inventory.price_curry == 0
        pcurry = 0
        @inventory.currency_id = 1
-     else
+       @inventory.price_curry = 0
+     else 
        pcurry = @inventory.price_curry
        @inventory.currency_id = 2
      end
     
-     if @inventory.price_usd.nil?
+     if @inventory.price_usd.nil? or @inventory.price_usd == 0
        pusd = 0
+       @inventory.price_usd = 0
      else
        pusd = @inventory.price_usd
-     end
-     #----------------->
+       @inventory.currency_id = 1
+      end
+    #-----------------> курс валюты здесь вычислять не нужно, т.к. здесь одно из двух, либо гривна либо доллары
     #   rt = 1
     #  if pcurry>0
-    #   rt = calc_rate_curry
+    #   rt = calc_rate_curry    
     #  end
     #   pusd = pcurry/rt
-     #----------------->
+    #----------------->
       
-     if @inventory.quantity.nil?
+     if @inventory.quantity.nil? 
        qtty = 0
+       @inventory.quantity = 0
      else
        qtty = @inventory.quantity
      end
@@ -146,7 +141,6 @@ class InventoriesController < ApplicationController
 
    def totaling   
      act_inventory_all
-
      @total_usd = @inventories.sum(:sum_usd)
      @total_uah = @inventories.sum(:sum_curry)
      

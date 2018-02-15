@@ -13,10 +13,10 @@
 	 <strong>Currency:</strong>
      <%= @cash.currency.name %>
   </p>
-  <p>
+ <!-- <p>
  		<strong>Rate:</strong>
-      <%=     @cash.ratecurry.rate  %>
-  </p>
+      <%#     @cash.ratecurry.rate  %>
+  </p>-->
 
    <p>
      <strong>Sum (curr-cy):</strong>
@@ -33,6 +33,8 @@
  	<strong>Budget Item:</strong>
     <%= @cash.budgetitem.name %>
   </p>
+<br>
+
 
 
 <%= link_to 'Edit', edit_cash_path(@cash) %> |

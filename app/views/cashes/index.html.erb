@@ -8,9 +8,9 @@
       <th colspan="5" class = "celltab20"> N </th>
       <th colspan="5" class = "celltab30">Date</th>
       <th colspan="2" class = "celltab40">Cur- </br> rency</th>
-      <th colspan="5" class = "celltab40">rate</th>
-      <th colspan="5" class = "celltab100center">Total  </br> (currency) </br><%= @cash_total_uah %></th>
-      <th colspan="5" class = "celltab100center">Total  </br> $ </br> <%= @cash_total_usd %></th>
+      <!-- <th colspan="5" class = "celltab40">rate</th> -->
+      <th colspan="5" class = "celltab100center"> Incoming  </br><% @cash_total_uah %></th>
+      <th colspan="5" class = "celltab100center">Total  </br> $ </br> <%= sprintf("%15.2f",@cash_total_usd) %></th>
       <th colspan="5" class = "celltab100center">Budget </br> item</th>
     </tr>
   </thead>
@@ -20,8 +20,8 @@
       <tr>
         <td colspan="5" class = "celltab20"> <%= cash.id %></td>
         <td colspan="5" class = "celltab30"> <%= cash.cash_date.strftime("%d.%m.%y") %></td>
-        <td colspan="2" class = "celltab40"> <%= cash.currency.name %> </td>
-        <td colspan="5" class = "celltab40"> <%= cash.ratecurry.rate %>  </td>
+        <td colspan="2" class = "celltab40"> <%= cash.currency.curry_code %> </td>
+        <!--<td colspan="5" class = "celltab40"> <%# cash.ratecurry.rate %>  </td>-->
 
         <td colspan="5" class = "celltab100center"><%= cash.sum_curry %></td>
         <td colspan="5" class = "celltab100center"><%= cash.sum_usd %></td>

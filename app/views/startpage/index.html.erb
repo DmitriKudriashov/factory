@@ -4,13 +4,11 @@
 </h1>
 
 <br>
-<% @all_incoming =  calc_cash_total_usd       %> 
-<% @all_investment = calc_inventory_total_usd %>
 <%= link_to 'INCOMING CASH :',  'cashes'  %>     ( total $ <%= sprintf("%15.2f",@all_incoming)%>    ) <br>
 <%= link_to 'INVENTORY     :',  'inventories' %> ( total $ <%= sprintf("%15.2f",@all_investment) %> )  
 <% @balance = @all_incoming - @all_investment %>
 <% @clr_cond = color_by_condition(@balance)   %><br>
-<a style="color: aqua; background-color: navy ">   Balance: </a> <a style =" <%= @clr_cond %> "> <%= @balance.to_s %>  </a>
+<a style="color: aqua; background-color: navy ">   Balance: </a> <a style =" <%= @clr_cond %> "> <%= sprintf("%15.2f",@balance) %>  </a>
 <br>
 <br>
 <%= link_to 'Model Price','modelprices'  %> <br>
@@ -26,5 +24,5 @@
 <%= link_to 'Descriptions ','descriptions'  %> <br>
 <%= link_to 'Products',  'products'  %> <br>
 <%= link_to 'Suppliers',  'suppliers'  %> <br>
-<%= link_to 'Type of using object',  'usingtypes'  %> <br>
+<%= link_to 'Type Budget Item',  'usingtypes'  %> <br>
 <%= link_to 'Units',  'units'  %> <br>

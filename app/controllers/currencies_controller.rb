@@ -52,6 +52,7 @@ class CurrenciesController < ApplicationController
     end
   end
 
+
   # DELETE /currencies/1
   # DELETE /currencies/1.json
   def destroy

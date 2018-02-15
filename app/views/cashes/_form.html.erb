@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <p>
+    <strong>Id:</strong>
+    <%= @cash.id %>
+  </p>
+
   <div class="field">
      Date: 
    <% if  @cash.cash_date.nil? %>
@@ -32,13 +37,16 @@
     Sum (curr-cy):
     <%= f.text_field :sum_curry %>
    </div>
+   <div class="field">
+    Sum (usd): 
+    <%= f.text_field :sum_usd %>
+   </div>
 
 
   <div class="field">
     Budget Item:
     <%=     collection_select :cash, :budgetitem_id, Budgetitem.all, :id, :name,  prompt: false %>
   </div>
-
 
   <div class="actions">
     <%= f.submit %>

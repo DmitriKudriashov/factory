@@ -30,29 +30,32 @@ class CashesController < ApplicationController
 
   # POST /cashes
   # POST /cashes.json
+
   def create
     @cash = Cash.new(cash_params)
 
     respond_to do |format|
-      if @cash.save
-        cash_cals_summs
+        @cash.sum_usd = f_calc_sum_usd(@cash.currency_id, @cash.cash_date, @cash.sum_curry) 
+     if @cash.save
         format.html { redirect_to @cash, notice: 'Cash was successfully created.' }
         format.json { render :show, status: :created, location: @cash }
+
       else
         format.html { render :new }
         format.json { render json: @cash.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /cashes/1
   # PATCH/PUT /cashes/1.json
   def update
-
+     
     respond_to do |format|
-
       if @cash.update(cash_params)
-        cash_cals_summs
+        @cash.sum_usd = f_calc_sum_usd(@cash.currency_id, @cash.cash_date, @cash.sum_curry) 
+        @cash.update({:sum_usd => @cash.sum_usd })
         format.html { redirect_to @cash, notice: 'Cash was successfully updated.' }
         format.json { render :show, status: :ok, location: @cash }
       else
@@ -65,7 +68,7 @@ class CashesController < ApplicationController
   # DELETE /cashes/1
   # DELETE /cashes/1.json
   def destroy
-          f_respond_destroy(@cash.destroy, @cash.id.to_s, cashes_url )
+      f_respond_destroy(@cash.destroy, @cash.id.to_s, cashes_url )
 #  @cash.destroy
 #    respond_to do |format|
 #      format.html { redirect_to cashes_url, notice: 'Cash was successfully destroyed.' }
@@ -74,32 +77,16 @@ class CashesController < ApplicationController
   end
 
 
-   def cash_totaling   
+  def cash_totaling   
      cash_all      
      @cash_total_usd = @cashes.sum(:sum_usd)
-     @cash_total_uah = @cashes.sum(:sum_curry)
-   end
+     # валюты смешанные считать сумму бессмысленно @cash_total_uah = @cashes.sum(:sum_curry)
+  end
   
-   def cash_all
+  def cash_all
       @cashes = Cash.all.order(cash_date: :desc)
-   end
-
-   def cash_cals_summs
-      rt_id = f_find_ratecurry_id(@cash.currency_id, @cash.cash_date)
-      @cash.ratecurry_id = rt_id
-    # rt = f_rate_to_date(rt_id)  #(@cash.currency_id, @cash.cash_date)
-     rt = Ratecurry.all.where("date_rate <= ? and currency_id = ?", @cash.cash_date, @cash.currency_id).order(date_rate: :desc).first.rate
-     if rt.nil? #or rt = 0 
-        @cash.sum_usd = 0 
-     else
-        @cash.sum_usd   = @cash.sum_curry/rt
-     end
-     
-     @cash.save
-     cash_totaling 
-   
-   end
-
+  end
+ 
 
 
 
@@ -111,8 +98,7 @@ class CashesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cash_params
-      params.require(:cash).permit(:cash_date, :currency_id, :ratecurry_id, :sum_curry, :sum_usd, :budgetitem_id)
-   
+        params.require(:cash).permit(:cash_date, :currency_id,  :sum_curry, :sum_usd, :budgetitem_id)
       # 170118 params.fetch(:cash, {:cash_date, :currency_id, :ratecurry_id, :sum_curry, :sum_usd, :budgetsitem_id})
     end
 
