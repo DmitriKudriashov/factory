@@ -3,6 +3,6 @@ class AddAccountIdToCash < ActiveRecord::Migration[5.0]
   	  	add_column :cashes, :account_id, :integer
 
   end
-    add_index :cashes, :account_id
+    # No  execute on Heroku add_index :cashes, :account_id
   
 end
