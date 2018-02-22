@@ -11,7 +11,7 @@
       <!-- <th colspan="5" class = "celltab40">rate</th> -->
       <th colspan="5" class = "celltab100center"> Incoming  </br><% @cash_total_uah %></th>
       <th colspan="5" class = "celltab100center">Total  </br> $ </br> <%= sprintf("%15.2f",@cash_total_usd) %></th>
-      <th colspan="5" class = "celltab100center">Budget </br> item</th>
+      <th colspan="5" class = "celltab100center">Account </br> item</th>
     </tr>
   </thead>
 
@@ -25,7 +25,7 @@
 
         <td colspan="5" class = "celltab100center"><%= cash.sum_curry %></td>
         <td colspan="5" class = "celltab100center"><%= cash.sum_usd %></td>
-        <td colspan="5" class = "celltab100center"><%= cash.budgetitem.name %></td>
+        <td colspan="5" class = "celltab100center"><%= cash.account.account %></td>
 
         <td><%= link_to 'Show', cash %></td>
         <td><%= link_to 'Edit', edit_cash_path(cash) %></td>

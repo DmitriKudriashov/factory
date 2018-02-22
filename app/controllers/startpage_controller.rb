@@ -3,6 +3,7 @@ class StartpageController < ActionController::Base
   before_filter :authenticate
 
   def index
+
      @all_incoming   = calc_cash_total_usd 
      @all_investment = calc_inventory_total_usd 
   end
@@ -11,16 +12,29 @@ class StartpageController < ActionController::Base
   end
 
   def authenticate
-      @login_user = false
+      @login_user   = false
+      @login_stas   = false
+      @login_marina = false
+      @user_name = ''
       authenticate_or_request_with_http_basic do |username, password|
-         @login_user = (username == "userx" && password == "xxx" )
-      end
-
-      if  @login_user 
+         @login_user   = (username == "userx" && password == "xxx" )
+         @login_stas   = (username == "Stas" && password == "Stas_2018" )
+         @login_marina = (username == "Marina" && password == "Marina_18" )
+         if  @login_user 
            @user_name = "userx"
-      end
-      @login_user
+         elsif @login_stas
+          @user_name = "Stas"
+         elsif @login_marina
+          @user_name = "Marina"
+         end
+         if @login_user ||  @login_stas || @login_marina
+          true
+         else
+          false
+         end
+      end # authenticate_or_request_with_http_basic do |username, password|
   end
+
 
   def calc_cash_total_usd    
     if not Cash.count.nil?

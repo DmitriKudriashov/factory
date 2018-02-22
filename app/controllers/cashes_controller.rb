@@ -98,7 +98,7 @@ class CashesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def cash_params
-        params.require(:cash).permit(:cash_date, :currency_id,  :sum_curry, :sum_usd, :budgetitem_id)
+        params.require(:cash).permit(:cash_date, :currency_id,  :sum_curry, :sum_usd, :account_id)
       # 170118 params.fetch(:cash, {:cash_date, :currency_id, :ratecurry_id, :sum_curry, :sum_usd, :budgetsitem_id})
     end
 
