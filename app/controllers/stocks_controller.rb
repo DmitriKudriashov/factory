@@ -4,7 +4,7 @@ class StocksController < ApplicationController
   # GET /stocks
   # GET /stocks.json
   def index
-    @stocks = Stock.all
+    @stocks = Stock.all.order(:name)
   end
 
   # GET /stocks/1
@@ -54,11 +54,14 @@ class StocksController < ApplicationController
   # DELETE /stocks/1
   # DELETE /stocks/1.json
   def destroy
-    @stock.destroy
-    respond_to do |format|
-      format.html { redirect_to stocks_url, notice: 'Stock was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+       f_respond_destroy(@stock.destroy, @stock.name, stock_url)
+#
+ #   @stock.destroy
+ #   respond_to do |format|
+ #     format.html { redirect_to stocks_url, notice: 'Stock was successfully destroyed.' }
+ #     format.json { head :no_content }
+ #   end
+  
   end
 
   private

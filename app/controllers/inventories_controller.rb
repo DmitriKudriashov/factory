@@ -31,7 +31,7 @@ class InventoriesController < ApplicationController
     @inventory.unit_id = 1
     @inventory.date_investment = Date.today()
     @inventory.usingtype_id = 1
-
+    @inventory.stock_id = 1
   end
 
   # GET /inventories/1/edit
@@ -162,7 +162,7 @@ class InventoriesController < ApplicationController
     def inventory_params
       params.require(:inventory).permit(:quantity, :budgetitem_id, :description_id, :brand_id, :serial_number, 
         :supplier_id, :price_curry, :sum_curry, :price_usd, :sum_usd, :ratecurry_id, :currency_id, :unit_id, 
-        :date_investment, :usingtype_id)
+        :date_investment, :usingtype_id, :stock_id)
       
     end
 end

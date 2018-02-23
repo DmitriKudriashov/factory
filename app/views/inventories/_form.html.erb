@@ -10,7 +10,11 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    Stock:
+     <%=     collection_select :inventory, :stock_id, Stock.all, :id, :name,  prompt: false %>
+   </div>
+ 
   <div class="field">
      Date: 
    <% if  @inventory.date_investment.nil? %>
@@ -24,7 +28,7 @@
     Quantty:
     <%= f.text_field :quantity %>
   </div>
-
+ 
     <div class="field">
       Unit:
       <%=     collection_select :inventory, :unit_id, Unit.all, :id, :name,  prompt: false %>
