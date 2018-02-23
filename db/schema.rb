@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223112202) do
+ActiveRecord::Schema.define(version: 20180223145217) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "account"
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20180223112202) do
     t.datetime "updated_at",                                               null: false
     t.date     "date_investment"
     t.integer  "usingtype_id"
+    t.integer  "stock_id"
     t.index ["brand_id"], name: "index_inventories_on_brand_id"
     t.index ["budgetitem_id"], name: "index_inventories_on_budgetitem_id"
     t.index ["currency_id"], name: "index_inventories_on_currency_id"
