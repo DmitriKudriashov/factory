@@ -54,7 +54,7 @@ class AccountsController < ApplicationController
   # DELETE /accounts/1
   # DELETE /accounts/1.json
   def destroy
-          f_respond_destroy(@account.destroy, @account.id.to_s, accounts_url )
+          f_respond_destroy(@account.destroy, @account.account, accounts_url )
   #----------- 220218
   #  @account.destroy
   #  respond_to do |format|

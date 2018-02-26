@@ -38,7 +38,7 @@ class StartpageController < ActionController::Base
 
   def calc_cash_total_usd    
     if not Cash.count.nil?
-     rv = Cash.all.sum(:sum_usd)
+      rv = Cash.all.sum(:sum_usd)
     else
       rv = 0
     end
@@ -59,12 +59,16 @@ class StartpageController < ActionController::Base
   def f_calc_sum_usd(id_cur, dt, scurry)
      r_usd = 0
      if not (id_cur.nil? or  dt.nil? or scurry.nil?)
-       rt = Ratecurry.all.where("date_rate <= ? and currency_id = ?", dt, id_cur).order(date_rate: :desc).first.rate
-       rt1 = 0
-       if not(rt.nil? or rt == 0)
+       first_record = Ratecurry.all.where("date_rate <= ? and currency_id = ?", dt, id_cur).order(date_rate: :desc).first
+       if not(first_record.nil?)
+          rt = first_record.rate
+          rt1 = 0
+          if not(rt.nil? or rt == 0)
               rt1 = 1/rt
-       end
+          end
           r_usd =  scurry*rt1
+       end # if not(first_record.nil?)
+        return r_usd
      end
      
        return r_usd
