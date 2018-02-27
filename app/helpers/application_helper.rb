@@ -13,4 +13,13 @@ module ApplicationHelper
    	end
    	return clr
    end
+   
+   def f_check_ratecurry_exists(id_cur, dt)
+      first_record = nil
+      if not (id_cur.nil? or  dt.nil? )
+       first_record = Ratecurry.all.where("date_rate <= ? and currency_id = ?", dt, id_cur).order(date_rate: :desc).first
+      end
+      return  first_record
+  end
+
 end

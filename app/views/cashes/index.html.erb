@@ -18,15 +18,16 @@
   <tbody>
     <% @cashes.each do |cash| %>
       <tr>
+        <% @style_color = mess_and_style(cash.sum_curry, cash.sum_usd, cash.cash_date) %>
         <td colspan="5" class = "celltab20"> <%= cash.id %></td>
         <td colspan="5" class = "celltab30"> <%= cash.cash_date.strftime("%d.%m.%y") %></td>
         <td colspan="2" class = "celltab40"> <%= cash.currency.curry_code %> </td>
         <!--<td colspan="5" class = "celltab40"> <%# cash.ratecurry.rate %>  </td>-->
 
         <td colspan="5" class = "celltab100center"><%= cash.sum_curry %></td>
-        <td colspan="5" class = "celltab100center"><%= cash.sum_usd %></td>
+        <td colspan="5" class = "celltab100center " style = '<%= @style_color %>'><%= cash.sum_usd %></td>
         <td colspan="5" class = "celltab100center"><%= cash.account.account %></td>
-
+ 
         <td><%= link_to 'Show', cash %></td>
         <td><%= link_to 'Edit', edit_cash_path(cash) %></td>
         <td><%= link_to 'Destroy', cash, method: :delete, data: { confirm: 'Are you sure?' } %></td>

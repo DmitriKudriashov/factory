@@ -1,5 +1,5 @@
   <p id="notice"><%= notice %></p>
-<h1  class = "lightseagreen" >INVENTORY</h1><br>
+<h1  class = "lightseagreen" >OUTGOING EXPENSES</h1><br>
 <br>
 <table>
   <thead>
@@ -24,11 +24,12 @@
   </thead>
   <tbody>
     <% @inventories.each do |inventory| %>
-    <% inventory_color(inventory.usingtype_id) %>
       <tr>
+        <% style_clr = set_style(inventory.price_curry, inventory.date_investment) %>
+        <% inventory_color(inventory.usingtype_id) %>
         <td colspan="5" class = "celltab20"> <%= inventory.id %></td>
         <td colspan="5" class = " <%= @color %> " ><%= inventory.stock.name %> </td>
-        <td colspan="5" class = " <%= @color %> " ><%= inventory.date_investment.strftime("%d.%m.%y") %></td>        
+        <td colspan="5" class = " <%= @color %> "  style = "<%= style_clr %>" ><%= inventory.date_investment.strftime("%d.%m.%y") %></td>        
         <td colspan="2" class = " <%= @color %> " ><%= inventory.quantity %></td>
         <td colspan="5" class = " <%= @color %> " ><%= inventory.unit.name %> </td>
         <td colspan="5" class = " <%= @color %> " ><%= inventory.budgetitem.name %></td>

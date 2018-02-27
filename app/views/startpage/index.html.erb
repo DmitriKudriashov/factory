@@ -3,30 +3,64 @@
 	<a style = "color: navy; background-color: aqua" > Sewing Factory </a>
 </h1>
 
+<table>
+<tr >	
+<th class = "celltab50left" style = "text-align:right;">	
+	<%= link_to 'INCOMING     CASH :',  'cashes'  %>  
+</th>
+<th  style = "text-align:left;">
+	    total $ <%= sprintf("%15.2f",@all_incoming)%>    
+</th>
+<th class = "celltab100left">	
+	<a  style = "color: yellow; background-color: red; font-weight: bolder; "> <%= @message_calc_usd_incoming_correctly %> </a>  
+</th>
+</tr>
+<tr>
+<th class = "celltab50left" style = "text-align:right;">	
+<%= link_to 'OUTGOING EXPENSES : ',  'inventories' %> 
+</th>
+<th class = "celltab20left">	
+	 total $ <%= sprintf("%15.2f",@all_investment) %> 
+</th>
+
+<th class = "celltab100left">	
+	<a  style = "color: yellow; background-color: red; font-weight: bolder; "> <%= @message_calc_usd_invest_correctly %> </a>  
+</th>
+
+<tr><% @balance = @all_incoming - @all_investment %>
+<% @clr_cond = color_by_condition(@balance)   %>
+<th style = "color: aqua; background-color: navy;  text-align:right; border:solid black 1.0pt;">	
+	   Balance: 
+</th>
+<th style =" <%= @clr_cond %> ">	
+	 <%= sprintf("%15.2f",@balance) %>  
+</th>
+
 <br>
-<%= link_to 'INCOMING CASH :',  'cashes'  %>     ( total $ <%= sprintf("%15.2f",@all_incoming)%>    ) <br>
-<%= link_to 'INVENTORY     :',  'inventories' %> ( total $ <%= sprintf("%15.2f",@all_investment) %> )  
-<% @balance = @all_incoming - @all_investment %>
-<% @clr_cond = color_by_condition(@balance)   %><br>
-<a style="color: aqua; background-color: navy ">   Balance: </a> <a style =" <%= @clr_cond %> "> <%= sprintf("%15.2f",@balance) %>  </a>
 <br>
-<br>
+</tr>
 <%# link_to 'Model Price','modelprices'  %> <br>
 <%# link_to 'Model Set',  'modelsets'  %> <br>
-
-<p>=================   HAND BOOK    ============================ </p><br>
-<%= link_to 'Accounts',  'accounts'  %> <br>
-<%= link_to 'Currency',  'currencies'  %> <br>
-<%= link_to 'Currency Rates',  'ratecurries'  %> <br>
+<tr  style = "text-align:left;">
+<th><p>=======   HAND BOOK    ========= </p>
+<ul>
+<li><%= link_to 'Accounts',  'accounts'  %> </li>
+<li><%= link_to 'Currency',  'currencies'  %></li> 
+<li><%= link_to 'Currency Rates',  'ratecurries'  %> </li>
 <br>
-<%= link_to 'Type Budget Item',  'usingtypes'  %> <br>
-<%= link_to 'Budget Items',  'budgetitems'  %> <br>
+<li><%= link_to 'Type Budget Item',  'usingtypes'  %> </li>
+<li><%= link_to 'Budget Items',  'budgetitems'  %> </li>
 <br>
 
-<%= link_to 'Brands',  'brands'  %> <br>
-<%= link_to 'Categories for Description',  'categories'  %> <br>
-<%= link_to 'Descriptions ','descriptions'  %> <br>
-<%= link_to 'Products',  'products'  %> <br>
-<%= link_to 'Suppliers',  'suppliers'  %> <br>
-<%= link_to 'Stocks',  'stocks'  %> <br>
-<%= link_to 'Units',  'units'  %> <br>
+<li><%= link_to 'Brands',  'brands'  %> </li>
+<li><%= link_to 'Categories for Description',  'categories'  %> </li>
+<li><%= link_to 'Descriptions ','descriptions'  %></li>
+<li><%= link_to 'Products',  'products'  %> </li>
+<li><%= link_to 'Suppliers',  'suppliers'  %> </li>
+<li><%= link_to 'Stocks',  'stocks'  %> </li>
+<li><%= link_to 'Units',  'units'  %> </li>
+</ul>
+</th>
+
+</tr>
+</table>

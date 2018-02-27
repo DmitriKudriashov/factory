@@ -1,31 +1,5 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-@import "bootstrap";
-
-
-input[type = submit] { @extend .btn;  @extend .btn-success;}
-
-body {
-  xbackground-color: #4B739F;
-  font-family: Verdana, Helvetica, "Times New Roman";
-  font-size: 14px;
-}
-
-x:hover {background-color: aqua;}
 .warning_message{color: yellow; background-color: red; font-weight: bolder; }
+
 .border_solidblack1pt{border:solid black 1.0pt;}
 .invest {background-color: aqua ; border:solid black 1.0pt;}
 .green {background-color: greenyellow ;border:solid black 1.0pt}
@@ -35,21 +9,6 @@ x:hover {background-color: aqua;}
 .red {background-color: red ; border:solid black 1.0pt; font-color: white;}
 .lightseagreen {background-color: lightgreen ;}
 .skyblue {background-color: skyblue ;}
-
-.bold{font-weight: bolder }
-
-.tabstyle08{width:800.0pt; margin-left:1000 pt; border-collapse:collapse;font-weight: bolder;}
-.tabstyle{width:1000.0pt; margin-left:1000 pt; border-collapse:collapse;font-weight: bolder;}
-.tabstyle2{width:1200.0pt; margin-left:1000 pt; border-collapse:collapse;font-weight: bolder;}
-
-
-.s_e_d{width:30.0pt;  border-collapse:collapse; text-align:center; }
-
-
-.celltab5{width:5.0pt; border:solid black 1.0pt; text-align:center; }
-
-.celltab10{width:10.0pt; border:solid black 1.0pt; text-align:center; }
-.celltab10right{width:10.0pt; border:solid black 1.0pt; text-align:right; }
 
 .celltab20{width:20.0pt; border:solid black 1.0pt; text-align:center; }   
 .celltab20center{width:20.0pt; border:solid black 1.0pt; text-align:center; }   
@@ -94,9 +53,3 @@ x:hover {background-color: aqua;}
 .celltab120center{width:120.0pt; border:solid black 1.0pt;  text-align:center; }    
 .celltab120right{width:120.0pt; border:solid black 1.0pt;  text-align:right; }    
 
-
-.center{text-align:center; }
-.celltab150{width:150.0pt; border:solid black 1.0pt;  }    
-.celltab150left{width:150.0pt; border:solid black 1.0pt;  text-align:left; }    
-.celltab150center{width:150.0pt; border:solid black 1.0pt;  text-align:center; }    
-.celltab150right{width:150.0pt; border:solid black 1.0pt;  text-align:right; }    

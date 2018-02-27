@@ -11,6 +11,7 @@ class CashesController < ApplicationController
   # GET /cashes/1
   # GET /cashes/1.json
   def show
+      mess_and_style(@cash.sum_curry, @cash.sum_usd, @cash.cash_date)
   end
 
   # GET /cashes/new
@@ -87,6 +88,15 @@ class CashesController < ApplicationController
       @cashes = Cash.all.order(cash_date: :desc)
   end
  
+  def mess_and_style(sum_curry, sum_usd, dt)
+       @style_color = ''  
+       @mess_not_rate = '' 
+      if not (sum_curry == 0 ) and sum_usd == 0  
+         @style_color =  'color: yellow; background-color: red; font-weight: bolder;'  
+         @mess_not_rate = ' !!! Rate UAH Not found by date: '+dt.strftime("%d.%m.%Y") 
+      end 
+       return @style_color
+  end
 
 
 

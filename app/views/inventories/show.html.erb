@@ -12,7 +12,9 @@
 <p>
   <strong>Date:</strong>
   <%= @inventory.date_investment.strftime("%d.%m.%Y") %>
+  <a class = 'warning_message'>  <%= set_message(@inventory.price_curry, @inventory.date_investment) %> </a>
 </p>
+
 <p>
   <strong>quantity:</strong>
   <%= @inventory.quantity %>

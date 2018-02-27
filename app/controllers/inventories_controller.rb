@@ -36,7 +36,7 @@ class InventoriesController < ApplicationController
 
   # GET /inventories/1/edit
   def edit
-    @message = 'Message: EDIT '
+ #   @message = 'Message: EDIT '
   end
 
   # POST /inventories
@@ -45,9 +45,12 @@ class InventoriesController < ApplicationController
     @inventory = Inventory.new(inventory_params)
 
     respond_to do |format|
-      cals_summs
+        @msggg =  ' Inventory was successfully created!'
+        cals_summs
+        @msggg = @msggg + @message
+        @mmm = @msggg
       if @inventory.save
-        format.html { redirect_to @inventory, notice: 'Inventory was successfully created.' }
+        format.html { redirect_to @inventory, notice: @msggg }
         format.json { render :show, status: :created, location: @inventory }
       else
         format.html { render :new }
@@ -59,15 +62,16 @@ class InventoriesController < ApplicationController
   # PATCH/PUT /inventories/1
   # PATCH/PUT /inventories/1.json
   def update
-    @message = 'Message: UPDATE '
+  #  @message = 'Message: UPDATE '
     respond_to do |format|
 
       if @inventory.update(inventory_params)
-
+        @msggg =  '!!!! Inventory was successfully updated.'
         cals_summs
-
-        @message = '!!!!!!   UPDATED !!!!!! '
-        format.html { redirect_to @inventory, notice: '!!!! Inventory was successfully updated.' }
+        @msggg = @msggg + @message
+        @mmm = @msggg
+        
+        format.html { redirect_to @inventory, notice: @msggg }
         format.json { render :show, status: :ok, location: @inventory }
       else
         format.html { render :edit }
@@ -88,19 +92,10 @@ class InventoriesController < ApplicationController
 #    end
   end
  
-  def calc_rate_curry
-    @inventory.ratecurry_id = f_find_ratecurry_id(@inventory.currency_id, @inventory.date_investment)
-     rt = Ratecurry.all.where(id: @inventory.ratecurry_id).order(date_rate: :desc).first.rate
-    if rt > 0
-      @message = 'Message rt = '+ rt.to_s
-     # @inventory.price_usd = @inventory.price_curry / rt
-    else
-      rt = 1000000
-    end
-    return rt
-  end
+ 
 
    def cals_summs
+     @message = ''
      if @inventory.price_curry.nil? or @inventory.price_curry == 0
        pcurry = 0
        @inventory.currency_id = 1
@@ -108,6 +103,10 @@ class InventoriesController < ApplicationController
      else 
        pcurry = @inventory.price_curry
        @inventory.currency_id = 2
+       first_rec = f_check_ratecurry_exists(2, @inventory.date_investment)
+        if first_rec.nil?
+          @message  = @message + '!!!  NOT found Rate UAH to date: ' + @inventory.date_investment.strftime("%d.%m.%Y") +' !!!'
+        end 
      end
     
      if @inventory.price_usd.nil? or @inventory.price_usd == 0
@@ -136,7 +135,7 @@ class InventoriesController < ApplicationController
      @inventory.sum_usd   = pusd * qtty
      @inventory.save
      totaling 
- 
+     return  @message
    end
 
    def totaling   
@@ -150,6 +149,19 @@ class InventoriesController < ApplicationController
     def act_inventory_all
       @inventories = Inventory.all.order(date_investment: :desc)
     end
+
+ 
+ # def calc_rate_curry
+ #   @inventory.ratecurry_id = f_find_ratecurry_id(@inventory.currency_id, @inventory.date_investment)
+ #    rt = Ratecurry.all.where(id: @inventory.ratecurry_id).order(date_rate: :desc).first.rate
+ #   if rt > 0
+ #     @message = 'Message rt = '+ rt.to_s
+ #    # @inventory.price_usd = @inventory.price_curry / rt
+ #   else
+ #     rt = 1000000
+ #   end
+ #   return rt
+ # end
 
   private
 

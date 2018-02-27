@@ -3,12 +3,15 @@ class StartpageController < ActionController::Base
   before_filter :authenticate
 
   def index
-
+     @message_calc_usd_incoming_correctly =''
+     @message_calc_usd_invest_correctly = ''
      @all_incoming   = calc_cash_total_usd 
      @all_investment = calc_inventory_total_usd 
+     return @message_calc_usd_correctly
   end
- 
+
   def show
+  
   end
 
   def authenticate
@@ -39,9 +42,20 @@ class StartpageController < ActionController::Base
   def calc_cash_total_usd    
     if not Cash.count.nil?
       rv = Cash.all.sum(:sum_usd)
+      if rv.nil?
+        rv = 0
+      end
+      all_uah = Cash.where("currency_id= ? and sum_curry <> 0 and sum_usd=0", 2)
+      if not(all_uah.count.nil?)
+         all_uah_first = all_uah.order(cash_date: :desc).first
+         dt = all_uah_first.cash_date
+         @message_calc_usd_incoming_correctly = ' !!! NOT Correctly ! Rate UAH Not found by date: '+dt.strftime("%d.%m.%Y")
+      end
+  
     else
       rv = 0
     end
+     return rv
   end
 
   def calc_inventory_total_usd
@@ -56,24 +70,36 @@ class StartpageController < ActionController::Base
      return @inventory_total_usd
   end
 #=======================================
+  def f_check_ratecurry_exists(id_cur, dt)
+      first_record = nil
+      if not (id_cur.nil? or  dt.nil? )
+       first_record = Ratecurry.all.where("date_rate <= ? and currency_id = ?", dt, id_cur).order(date_rate: :desc).first
+      end
+      return  first_record
+  end
+
   def f_calc_sum_usd(id_cur, dt, scurry)
      r_usd = 0
      if not (id_cur.nil? or  dt.nil? or scurry.nil?)
-       first_record = Ratecurry.all.where("date_rate <= ? and currency_id = ?", dt, id_cur).order(date_rate: :desc).first
-       if not(first_record.nil?)
+       first_record = f_check_ratecurry_exists(id_cur, dt)
+      # 260218 first_record = Ratecurry.all.where("date_rate <= ? and currency_id = ?", dt, id_cur).order(date_rate: :desc).first
+      if not(first_record.nil?)
           rt = first_record.rate
           rt1 = 0
           if not(rt.nil? or rt == 0)
               rt1 = 1/rt
           end
           r_usd =  scurry*rt1
-       end # if not(first_record.nil?)
-        return r_usd
-     end
+      else
+        @message_calc_usd_invest_correctly = ' !!! NOT Correctly ! Rate UAH Not found by date: '+dt.strftime("%d.%m.%Y")
+      end # if not(first_record.nil?)
+        
+     end # if not (id_cur.nil? or  dt.nil? or scurry.nil?)
      
        return r_usd
   end
-#=======================================
+#========================================
+
   def f_find_ratecurry_id(id_cur, dt)
       #idrate  = Ratecurry.find_by_sql("SELECT rate  FROM 'ratecurries' where date_rate<= '"+dt.to_s+"' and currency_id = "+id_cur.to_s+" order by date_rate desc").first.id 
         idrate = Ratecurry.all.where("date_rate <= ? and currency_id = ?", dt, id_cur).order(date_rate: :desc).first.id
