@@ -8,8 +8,8 @@
 <th class = "celltab50left" style = "text-align:right;">	
 	<%= link_to 'INCOMING     CASH :',  'cashes'  %>  
 </th>
-<th  style = "text-align:left;">
-	    total $ <%= sprintf("%15.2f",@all_incoming)%>    
+<th  style = "text-align:center;">
+	      <%= sprintf("%15.2f",@all_incoming)%>    
 </th>
 <th class = "celltab100left">	
 	<a  style = "color: yellow; background-color: red; font-weight: bolder; "> <%= @message_calc_usd_incoming_correctly %> </a>  
@@ -19,8 +19,8 @@
 <th class = "celltab50left" style = "text-align:right;">	
 <%= link_to 'OUTGOING EXPENSES : ',  'inventories' %> 
 </th>
-<th class = "celltab20left">	
-	 total $ <%= sprintf("%15.2f",@all_investment) %> 
+<th class = "celltab20center">	
+	    <%= sprintf("%15.2f",@all_investment) %> 
 </th>
 
 <th class = "celltab100left">	
