@@ -46,12 +46,12 @@ class StartpageController < ActionController::Base
         rv = 0
       end
       all_uah = Cash.where("currency_id= ? and sum_curry <> 0 and sum_usd=0", 2)
-      if not(all_uah.count.nil?)
+      cnt = all_uah.count
+      if not(cnt.nil? or cnt == 0 )
          all_uah_first = all_uah.order(cash_date: :desc).first
          dt = all_uah_first.cash_date
          @message_calc_usd_incoming_correctly = ' !!! NOT Correctly ! Rate UAH Not found by date: '+dt.strftime("%d.%m.%Y")
-      end
-  
+      end    
     else
       rv = 0
     end
