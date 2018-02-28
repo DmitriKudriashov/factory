@@ -4,22 +4,35 @@
 </h1>
 
 <table>
+	<thead>
+		<tr>
+			<th style = 'width:200.0pt;'>
+			</th>
+			<th style = 'width:70.0pt;'>
+			</th>
+			<th style = 'width:100.0pt;'>
+			</th>
+			<th style = 'width:100.0pt;'>
+			</th>
+			
+		</tr>
+	</thead>
 <tr >	
-<th class = "celltab50left" style = "text-align:right;">	
+<th  style = "text-align:right;">	
 	<%= link_to 'INCOMING     CASH :',  'cashes'  %>  
 </th>
 <th  style = "text-align:center;">
 	      <%= sprintf("%15.2f",@all_incoming)%>    
 </th>
-<th class = "celltab100left">	
+<th >	
 	<a  style = "color: yellow; background-color: red; font-weight: bolder; "> <%= @message_calc_usd_incoming_correctly %> </a>  
 </th>
 </tr>
 <tr>
-<th class = "celltab50left" style = "text-align:right;">	
+<th  style = "text-align:right;">	
 <%= link_to 'OUTGOING EXPENSES : ',  'inventories' %> 
 </th>
-<th class = "celltab20center">	
+<th >	
 	    <%= sprintf("%15.2f",@all_investment) %> 
 </th>
 
@@ -30,7 +43,7 @@
 <tr><% @balance = @all_incoming - @all_investment %>
 <% @clr_cond = color_by_condition(@balance)   %>
 <th style = "color: aqua; background-color: navy;  text-align:right; border:solid black 1.0pt;">	
-	   Balance: 
+	   BALANCE : 
 </th>
 <th style =" <%= @clr_cond %> ">	
 	 <%= sprintf("%15.2f",@balance) %>  
@@ -42,7 +55,7 @@
 <%# link_to 'Model Price','modelprices'  %> <br>
 <%# link_to 'Model Set',  'modelsets'  %> <br>
 <tr  style = "text-align:left;">
-<th><p>=======   HAND BOOK    ========= </p>
+<th><p style = "text-align:right;">========   HAND BOOK    ========= </p>
 <ul>
 <li><%= link_to 'Accounts',  'accounts'  %> </li>
 <li><%= link_to 'Currency',  'currencies'  %></li> 
