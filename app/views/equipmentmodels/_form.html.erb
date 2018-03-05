@@ -1,0 +1,28 @@
+<%= form_for(equipmentmodel) do |f| %>
+  <% if equipmentmodel.errors.any? %>
+    <div id="error_explanation"> 
+      <h2><%= pluralize(equipmentmodel.errors.count, "error") %> prohibited this equipment model from being saved:</h2>
+
+      <ul>
+      <% equipmentmodel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    Model:
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+   Brand:
+    <%= collection_select :equipmentmodel, :brand_id, Brand.all.order(:name), :id, :name,  prompt: false %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

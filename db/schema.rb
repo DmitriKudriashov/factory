@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223145217) do
+ActiveRecord::Schema.define(version: 20180305131000) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "account"
@@ -79,6 +79,20 @@ ActiveRecord::Schema.define(version: 20180223145217) do
     t.index ["name"], name: "index_descriptions_on_name", unique: true
   end
 
+  create_table "employees", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "position_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "equipmentmodels", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "brand_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "inventories", force: :cascade do |t|
     t.decimal  "quantity",                                 default: "0.0"
     t.integer  "budgetitem_id"
@@ -136,6 +150,13 @@ ActiveRecord::Schema.define(version: 20180223145217) do
     t.datetime "updated_at",                          null: false
     t.index ["number_model"], name: "index_modelsets_on_number_model", unique: true
     t.index ["product_id"], name: "index_modelsets_on_product_id"
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_positions_on_name", unique: true
   end
 
   create_table "posts", force: :cascade do |t|
