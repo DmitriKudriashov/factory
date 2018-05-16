@@ -1,7 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <h1 class = "skyblue">Incoming Cash</h1>
+<br>
+<%# will_paginate @cashes %>
 
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @cashes %>
+    </div>
+      <%= will_paginate @cashes, :container => true %>
+</div> 
+
+
+<br>
 <table>
   <thead>
     <tr>
@@ -10,8 +21,8 @@
       <th colspan="2" class = "celltab40">Cur- </br> rency</th>
       <!-- <th colspan="5" class = "celltab40">rate</th> -->
       <th colspan="5" class = "celltab100center"> Incoming  </br><% @cash_total_uah %></th>
-      <th colspan="5" class = "celltab100center">Total  </br> $ </br> <%= sprintf("%15.2f",@cash_total_usd) %></th>
-      <th colspan="5" class = "celltab100center">Account </br> item</th>
+      <th colspan="5" class = "celltab100center"> Total  </br> $ </br> <%= sprintf("%15.2f",@cash_total_usd) %></th>
+      <th colspan="5" class = "celltab100center"> Account </br> item</th>
     </tr>
   </thead>
 
@@ -25,7 +36,7 @@
         <!--<td colspan="5" class = "celltab40"> <%# cash.ratecurry.rate %>  </td>-->
 
         <td colspan="5" class = "celltab100center"><%= cash.sum_curry %></td>
-        <td colspan="5" class = "celltab100center " style = '<%= @style_color %>'><%= cash.sum_usd %></td>
+        <td colspan="5" class = "celltab100center" style = '<%= @style_color %>'><%= cash.sum_usd %></td>
         <td colspan="5" class = "celltab100center"><%= cash.account.account %></td>
  
         <td><%= link_to 'Show', cash %></td>

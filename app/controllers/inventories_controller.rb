@@ -147,7 +147,7 @@ class InventoriesController < ApplicationController
 
 
     def act_inventory_all
-      @inventories = Inventory.all.order(date_investment: :desc)
+      @inventories = Inventory.all.page(params[:page]).order('created_at DESC') #kds 140518 .order(date_investment: :desc).paginate(:page => params[:page]) #, :per_page => 3)
     end
 
  

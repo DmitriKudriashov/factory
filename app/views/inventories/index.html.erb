@@ -1,5 +1,16 @@
   <p id="notice"><%= notice %></p>
 <h1  class = "lightseagreen" >OUTGOING EXPENSES</h1><br>
+<!--<br>-->
+<%# will_paginate @inventories %>
+
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @inventories %>
+    </div>
+    <%= will_paginate @inventories, :container => true %>
+</div>  
+
+
 <br>
 <table>
   <thead>
@@ -29,7 +40,7 @@
         <% inventory_color(inventory.usingtype_id) %>
         <td colspan="5" class = "celltab20"> <%= inventory.id %></td>
         <td colspan="5" class = " <%= @color %> " ><%= inventory.stock.name %> </td>
-        <td colspan="5" class = " <%= @color %> "  style = "<%= style_clr %>" ><%= inventory.date_investment.strftime("%d.%m.%y") %></td>        
+        <td colspan="5" class = " <%= @color %> "  style = "<%= style_clr %>" ><%= inventory.date_investment.strftime("%d.%m.%y") %></td>
         <td colspan="2" class = " <%= @color %> " ><%= inventory.quantity %></td>
         <td colspan="5" class = " <%= @color %> " ><%= inventory.unit.name %> </td>
         <td colspan="5" class = " <%= @color %> " ><%= inventory.budgetitem.name %></td>
@@ -52,7 +63,6 @@
 </table>
 
 <br>
-
 <%= link_to 'New Inventory', new_inventory_path %><br>
 <%= link_to 'Back to Startpage', :root  %>
 
