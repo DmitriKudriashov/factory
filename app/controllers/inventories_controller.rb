@@ -4,6 +4,7 @@ class InventoriesController < ApplicationController
   # GET /inventories
   # GET /inventories.json
   def index
+    @budgetitem_id = params[:budget_item_id]
     totaling
   end
 
@@ -147,7 +148,14 @@ class InventoriesController < ApplicationController
 
 
     def act_inventory_all
-      @inventories = Inventory.all.page(params[:page]).order('created_at DESC') #kds 140518 .order(date_investment: :desc).paginate(:page => params[:page]) #, :per_page => 3)
+
+      if @budgetitem_id.to_s.empty?
+        @inventories = Inventory.all.page(params[:page]).order('created_at DESC') #kds 140518 .order(date_investment: :desc).paginate(:page => params[:page]) #, :per_page => 3)
+      else
+        @inventories = Inventory.all.where(:budgetitem_id => @budgetitem_id)
+        @inventories = @inventories.page(params[:page]).order('created_at DESC') #kds 140518 .order(date_investment: :desc).paginate(:page => params[:page]) #, :per_page => 3)
+       
+      end
     end
 
  

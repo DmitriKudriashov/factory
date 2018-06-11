@@ -3,15 +3,21 @@
 <!--<br>-->
 <%# will_paginate @inventories %>
 
-<div class="digg_pagination">
+<div class="digg_pagination" style= "width: 250px; float: left">
     <div class="page_info">
       <%= page_entries_info @inventories %>
     </div>
-    <%= will_paginate @inventories, :container => true %>
+      <%= will_paginate @inventories, :container => true %>
 </div>  
 
+<div class="well" style= "width: 250px; float: centre">
+     <label for="budget_item_id">B/Item:</label>
+  <%= form_tag inventories_path, method: :get, id: 'inventories_form' do %>     
+    <%= select_tag(:budget_item_id, options_for_select(Budgetitem.all.collect {|v| [ v['name'], v['id'] ] }, @budgetitem_id), :prompt => "...Select B/Item", :class => "form-control" ) %>
+  <!--  <input type='submit'>-->
+  <% end %>
+</div>
 
-<br>
 <table>
   <thead>
     <tr>
@@ -66,3 +72,8 @@
 <%= link_to 'New Inventory', new_inventory_path %><br>
 <%= link_to 'Back to Startpage', :root  %>
 
+<script type="text/javascript">
+  $('#budget_item_id').change(function() { 
+    $('#inventories_form').submit();
+  })
+</script>
