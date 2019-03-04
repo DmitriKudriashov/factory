@@ -64,8 +64,9 @@ class CashesController < ApplicationController
         format.json { render json: @cash.errors, status: :unprocessable_entity }
       end
     end
-  end
 
+  end
+ 
   # DELETE /cashes/1
   # DELETE /cashes/1.json
   def destroy
@@ -79,15 +80,27 @@ class CashesController < ApplicationController
 
 
   def cash_totaling   
-     cash_all      
-     @cash_total_usd = @cashes.sum(:sum_usd)
+     #cash_all      
+     @cashes_all = Cash.all
+     @cash_total_usd = @cashes_all.sum(:sum_usd)
      # валюты смешанные считать сумму бессмысленно @cash_total_uah = @cashes.sum(:sum_curry)
+     @cashes = @cashes_all.order(cash_date: :desc).paginate(:page => params[:page], :per_page => @ppg)
+     # @cashes = @cashes_all.page(params[:page],  :per_page => 3 ).order('created_at DESC')
+     redirect_to root_path if @cashes.empty?
+     #.order('id DESC')
   end
+
   
-  def cash_all
-      @cashes = Cash.all.order(cash_date: :desc)
+  def cash_all_order
+    # @cashes = Cash.all.order(cash_date: :desc).paginate(:page => params[:page], :per_page => 3)
+    # @cashes = Cash.all.page(params[:page]).order('created_at DESC')
+      @cashes = @cashes_all.where(:published => true).paginate(:page => params[:page], :per_page => 5).order('id DESC')
   end
- 
+
+  def cash_all
+     @cash_all = Cash.all
+  end
+
   def mess_and_style(sum_curry, sum_usd, dt)
        @style_color = ''  
        @mess_not_rate = '' 

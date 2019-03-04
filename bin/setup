@@ -32,3 +32,6 @@ chdir APP_ROOT do
   puts "\n== Restarting application server =="
   system! 'bin/rails restart'
 end
+
+#WillPaginate.per_page = 10
+
